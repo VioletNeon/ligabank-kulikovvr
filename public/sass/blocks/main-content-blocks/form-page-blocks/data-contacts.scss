@@ -1,0 +1,82 @@
+.data-contacts {
+  border-top: 2px solid $green-color;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  padding: 0;
+  margin: 18px 0 0 0;
+
+  @media (min-width: $tablet-width) {
+    margin: 80px 0 0 0;
+    padding: 0 30px 0 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 70px 0 70px;
+    margin: 0 auto;
+  }
+}
+
+.data-contacts__title {
+  position: relative;
+  top: 9px;
+
+  @media (min-width: $tablet-width) {
+    top: -5px;
+  }
+}
+
+.data-contacts__list {
+  @include reset-list-style();
+
+  min-width: 280px;
+  margin: 43px 20px 0 18px;
+
+  @media (min-width: $tablet-width) {
+    margin: 70px 39px 70px 40px;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 80px;
+    row-gap: 40px;
+    max-width: 1220px;
+    margin: 87px auto 90px auto;
+  }
+}
+
+.data-contacts__item {
+  margin: 0 0 14px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 0 20px 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    min-width: 530px;
+  }
+}
+
+.data-contacts__input-description {
+  margin: -5px 10px 0 0;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 17px 0 0;
+  }
+}
+
+.data-contacts__input {
+  margin: 0;
+  padding: 0 50px 0 15px;
+
+  @media (min-width: $tablet-width) {
+    padding: 0 45px 0 17px;
+  }
+}

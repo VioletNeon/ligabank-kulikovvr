@@ -1,0 +1,194 @@
+.main-nav {
+  width: 100%;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.main-nav__list {
+  @include reset-list-style();
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 200px;
+    width: max-content;
+    flex-wrap: wrap;
+    -webkit-column-gap: 22px;
+  }
+
+  @media (min-width: $desktop-width) {
+    -webkit-column-gap: 28px;
+  }
+}
+
+.main-nav__item {
+  @include font-special(400);
+  @include font-size(16px, 18px);
+
+  padding: 35px 0;
+  position: relative;
+
+  &:first-child a {
+    border-top: 1px solid $gray-border;
+
+    @media (min-width: $tablet-width) {
+      border: none;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 31px 0 28px 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 40px 0;
+  }
+}
+
+.main-nav__link {
+  @include position-zero();
+
+  color: $black-text;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $gray-border;
+  padding: 0 15px;
+
+  @media (min-width: $tablet-width) {
+    @include font-special(400);
+    @include font-size(14px, 16px);
+
+    position: static;
+    border: none;
+    padding: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    @include font-size(16px, 18.75px);
+  }
+}
+
+@media (max-width: $mobile-width-only) {
+  .main-nav--closed {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .main-nav--closed .main-nav__list {
+    display: none;
+  }
+
+  .main-nav--closed .main-nav__authentication-link {
+    padding: 0 0 15px 0;
+    border-bottom: none;
+  }
+
+  .main-nav--closed .main-nav__button-wrapper {
+    display: none;
+  }
+
+  .main-nav--closed .main-nav__logo-authentication {
+    width: 14px;
+    height: 16px;
+  }
+
+  .main-nav--closed .main-nav__authentication-description {
+    display: none;
+  }
+}
+
+.main-nav__button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 0 50px 0;
+}
+
+.main-nav__close {
+  position: relative;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  top: 0;
+  width: 18px;
+  height: 18px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: $black-color;
+    width: 2px;
+    height: 18px;
+    top: 0;
+    right: 8px;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.main-nav__logo-authentication {
+  width: 20px;
+  height: 22px;
+}
+
+.main-nav__authentication-link {
+  display: flex;
+  height: auto;
+  padding: 25px 15px;
+  border-bottom: 1px solid $gray-border;
+
+  @media (min-width: $tablet-width) {
+    padding: 29px 0 0 40px;
+    border-bottom: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 38px 0 0 0;
+    height: min-content;
+  }
+}
+
+.main-nav__authentication-description {
+  @include font-special(400);
+  @include font-size(16px, 18px);
+
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 11px;
+  color: $black-text;
+}
+
+@media (min-width: $tablet-width) {
+  .main-nav__authentication-description {
+    display: none;
+  }
+
+  .main-nav__button-wrapper {
+    display: none;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .main-nav__authentication-description {
+    display: initial;
+    margin: auto 0 auto 11px;
+  }
+}

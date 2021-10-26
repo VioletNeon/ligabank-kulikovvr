@@ -1,0 +1,95 @@
+.form-section {
+  @media (min-width: $tablet-width) {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    padding: 0 0 72px 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 0 82px 0;
+  }
+}
+
+.form-section__wrapper {
+  position: relative;
+}
+
+.form-section__text-wrapper {
+  @media (min-width: $desktop-width) {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+}
+
+.form-section__text {
+  margin: 0 20px 26px 20px;
+  width: 280px;
+  text-transform: uppercase;
+
+  @include font-special(400);
+  @include font-size(14px, 18px);
+
+  @media (min-width: $tablet-width) {
+    width: 325px;
+    margin: 0 0 0 70px;
+
+    @include font-size(20px, 30px);
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0 0 0 110px;
+  }
+}
+
+.form-section__wrapper-button {
+  @media (min-width: $desktop-width) {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+  }
+}
+
+.form-section__button {
+  @include font-size(16px, 20px);
+  width: 87.5%;
+  margin: 0 auto;
+  border: none;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(20px, 20px);
+    width: 283px;
+    margin: 0 0 0 70px;
+    height: 52px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0 0 0 110px;
+    width: 568px;
+  }
+}
+
+.form-section__legend {
+  display: block;
+  text-align: center;
+  min-width: 280px;
+  padding: 20px 0 33px 0;
+
+  @include font-size(14px, 16px);
+
+  @media (min-width: $tablet-width) {
+    width: 276px;
+    position: absolute;
+    left: 414px;
+    bottom: 0;
+    text-align: left;
+    padding: 22px 0 20px 0;
+
+    @include font-size(16px, 16px);
+  }
+
+  @media (min-width: $desktop-width) {
+    position: static;
+    margin: 0 0 0 80px;
+    padding: 18px 0 20px 0;
+  }
+}

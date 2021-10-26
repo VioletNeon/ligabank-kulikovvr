@@ -1,0 +1,56 @@
+.invent {
+  padding: 0 0 0 0;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 42px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 76px;
+  }
+}
+
+.invent__text {
+  @include font-special(400);
+  @include font-size(16px, 18px);
+
+  text-transform: uppercase;
+  width: 132px;
+  margin: 0 15px 0 0;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(20px, 21px);
+    width: min-content;
+  }
+}
+
+.invent__address {
+  width: 149px;
+  margin: 0;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(16px, 20px);
+
+    position: relative;
+    top: -10px;
+    width: min-content;
+    text-align: right;
+    align-items: flex-start;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 15px 0 0;
+    text-align: left;
+  }
+}
+
+.invent__address span {
+  @media (min-width: $tablet-width) {
+    display: block;
+    margin: 13px 0 0 0;
+  }
+}

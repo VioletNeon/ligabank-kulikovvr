@@ -1,0 +1,191 @@
+.make-program {
+  background-image: url("../img/lucky-cat@1x.jpg"), linear-gradient(transparent 0, $special-dark-grey-color 0);
+  background-repeat: no-repeat no-repeat;
+  background-position: top, top;
+  background-size: 320px 302px, auto 302px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (min-width: $mobile-width-only) {
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/lucky-cat@2x.jpg"), linear-gradient(transparent 0, $special-dark-grey-color 0);
+      background-size: 640px auto, auto 302px;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    background: none;
+    padding: 0 30px 0 30px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: min-content;
+    grid-template-rows: min-content min-content min-content;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+    outline: 1px solid $white-color;
+    background-image: linear-gradient(90deg, $white-color 50%, $opacity-green-color 50%), url("../img/lucky-cat-desktop@1x.jpg"), linear-gradient(90deg, $white-color 50%, $special-dark-grey-color 50%);
+    background-repeat: no-repeat no-repeat;
+    background-position: top right, top right;
+    background-size: auto, 720px 694px;
+    display: grid;
+    grid-template-columns: 1fr 720px 720px 1fr;
+    grid-template-rows: 140px min-content min-content min-content;
+    padding: 0 0 54px 0;
+    margin: 0;
+
+    @media (min-resolution: 2dppx) {
+      background-image: linear-gradient(90deg, $white-color 50%, $opacity-green-color 50%), url("../img/lucky-cat-desktop@2x.jpg"), linear-gradient(90deg, $white-color 50%, $special-dark-grey-color 50%);
+      background-size: auto, 720px 694px;
+    }
+  }
+}
+
+.make-program__wrapper {
+  background-color: rgba($green-color, 0.85);
+  background-size: 320px 302px;
+  background-position: top;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 302px;
+
+  @media (min-width: $tablet-width) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background: none;
+    padding: 0;
+    margin: 0 0 20px 82px;
+    position: static;
+    z-index: 3;
+    width: 600px;
+    text-align: left;
+    align-items: flex-start;
+    min-height: min-content;
+
+    @include font-size(60px, 60px);
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    padding: 0;
+    margin: 0 0 0 190px;
+    height: min-content;
+    justify-self: left;
+    position: relative;
+    width: 550px;
+    bottom: 40px;
+  }
+}
+
+.make-program__text {
+  color: $white-color;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  top: 125px;
+
+  @include reset-list-style();
+  @include font-special(400);
+  @include font-size(14px, 14px);
+
+  @media (min-width: $tablet-width) {
+    color: $black-color;
+    position: static;
+    padding: 0 0 0 5px;
+    margin: 0;
+    text-align: left;
+
+    @include font-size(20px, 20px);
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0;
+    margin: -9px 0 20px 0;
+  }
+}
+
+.make-program__button {
+  margin: 0 20px;
+
+  @media (min-width: $tablet-width) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    margin: 28px 0 0 82px;
+    text-align: left;
+    width: max-content;
+    max-width: 625px;
+    height: min-content;
+    padding: 17px 25px 17px 25px;
+    position: relative;
+    bottom: 265px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    margin: 15px 0 0 190px;
+    max-width: 450px;
+    bottom: 77px;
+  }
+}
+
+.make-program__image-container {
+  position: relative;
+
+  @media (min-width: $tablet-width) {
+    position: static;
+    top: 0;
+    display: flex;
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    margin: 40px 0 0 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: flex;
+    grid-column: 3 / 5;
+    grid-row: 2 / 5;
+    margin: 0;
+  }
+}
+
+.make-program__image {
+  position: absolute;
+  bottom: -65px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 280px;
+
+  @media (min-width: $tablet-width) {
+    position: static;
+    top: 0;
+    display: flex;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    min-width: 692px;
+    width: 709px;
+    height: 609px;
+    margin: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: flex;
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+    min-width: auto;
+    position: relative;
+    left: auto;
+    right: 160px;
+    width: 552px;
+    height: 499px;
+  }
+}

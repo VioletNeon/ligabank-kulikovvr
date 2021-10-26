@@ -1,0 +1,36 @@
+.form-title {
+  @include font-special(400);
+  @include font-size(24px, 26px);
+
+  color: $black-color;
+  padding-left: 20px;
+  padding-right: 22px;
+  width: min-content;
+
+  @media (min-width: $tablet-width) {
+    padding-left: 40px;
+    padding-right: 43px;
+    width: max-content;
+
+    @include font-size(36px, 36px);
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0;
+    width: 0;
+    margin: 0 auto;
+    right: 610px;
+  }
+}
+
+.form-title__wrapper {
+  @media (min-width: $desktop-width) {
+    position: absolute;
+    width: max-content;
+    left: -40px;
+    bottom: -17px;
+    background-color: $white-color;
+    padding-left: 40px;
+    padding-right: 43px;
+  }
+}

@@ -1,0 +1,14 @@
+.text {
+  @include font-size(14px, 18px);
+  color: $special-dark-grey-color;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(16px, 24px);
+    color: $black-color;
+  }
+
+  @media (min-width: $desktop-width) {
+    @include font-size(16px, 24px);
+    color: $special-dark-grey-color;
+  }
+}
