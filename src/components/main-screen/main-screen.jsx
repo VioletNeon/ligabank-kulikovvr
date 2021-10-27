@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../header/header';
+import Slider from '../slider/slider';
 
 function MainScreen() {
   return (
@@ -7,44 +8,7 @@ function MainScreen() {
       <Header/>
       <main className="page-main">
         <h1 className="visually-hidden">Услуги Лига Банк</h1>
-        <section className="slider">
-          <h2 className="visually-hidden">Предложения Лига Банк</h2>
-          <div className="slider__first-slide">
-            <p className="slider__tittle-text">Лига Банк</p>
-            <p className="slider__text">Кредиты на любой случай</p>
-            <a className="slider__button" href="#">Рассчитать кредит</a>
-            <picture>
-              <source media="(min-width: 768px)" srcSet={'img/black-card-tab.jpg'}/>
-              <img className="slider__image slider__image--black-card" src={'img/black-card.jpg'} alt="Примерный вид черной карточки банка"/>
-            </picture>
-            <img className="slider__image slider__image--black-card" src={'img/white-card.jpg'} alt="Примерный вид белой карточки банка"/>
-          </div>
-          <div className="slider__second-slide">
-            <p className="slider__tittle-text">Лига Банк</p>
-            <p className="slider__text">Ваша уверенность в завтрашнем дне</p>
-            <picture>
-              <source media="(min-width: 768px)" srcSet={'img/man-in-suit-tab.jpg'}/>
-              <img className="slider__image" src={'img/man-in-suit.jpg'} alt="Мужчина в деловом костюме"/>
-            </picture>
-          </div>
-          <div className="slider__third-slide">
-            <p className="slider__tittle-text">Лига Банк</p>
-            <p className="slider__text">Всегда рядом</p>
-            <a className="slider__button" href="#">Найти отделение</a>
-            <picture>
-              <source media="(min-width: 768px)" srcSet={'img/girl-with-card-tab.jpg'}/>
-              <img className="slider__image" src={'img/girl-with-card.jpg'} alt="Девушка держит карту банка"/>
-            </picture>
-          </div>
-          <div className="slider__indicators">
-            <button className="slider__current" type="button" aria-label="Первый слайд">
-            </button>
-            <button type="button" aria-label="Второй слайд">
-            </button>
-            <button type="button" aria-label="Третий слайд">
-            </button>
-          </div>
-        </section>
+        <Slider/>
         <section className="services">
           <h2 className="visually-hidden">Услуги</h2>
           <div className="services__tabs">
