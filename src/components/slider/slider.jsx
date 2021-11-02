@@ -2,25 +2,6 @@ import React, {useRef, useEffect} from 'react';
 
 function Slider() {
   const slider = useRef(null);
-  let xDown = null;
-
-  const handleSliderTouchStart = (evt) => {
-    const firstTouch = evt.touches[0];
-    xDown = firstTouch.clientX;
-  };
-
-  const handleSliderTouchMove = (evt) => {
-    const xUp = evt.touches[0].clientX;
-    const xDiff = xDown - xUp;
-
-    if (((slider.current.scrollWidth - slider.current.clientWidth) === (slider.current.scrollLeft)) && (xDiff > 0)) {
-      setTimeout(() => {slider.current.scrollLeft = 0}, 300);
-    } else if (slider.current.scrollLeft === 0) {
-      setTimeout(() => {slider.current.scrollLeft = slider.current.scrollWidth - slider.current.clientWidth}, 300);
-    }
-
-    xDown = null;
-  };
 
   useEffect(() => {
     const swipeSlide = () => {
@@ -42,7 +23,7 @@ function Slider() {
   return (
     <section className="slider">
       <h2 className="visually-hidden">Предложения Лига Банк</h2>
-      <div className="slider__list" ref={slider} onTouchMove={handleSliderTouchMove} onTouchStart={handleSliderTouchStart}>
+      <div className="slider__list" ref={slider}>
         <div className="slider__slide slider__slide--first">
           <p className="slider__tittle-text slider__tittle-text--first-slide">Лига Банк</p>
           <p className="slider__text slider__text--first-slide">Кредиты на любой случай</p>
