@@ -1,0 +1,62 @@
+.range-calculator {
+  height: 20px;
+  -webkit-appearance: none;
+}
+
+.range-calculator:focus {
+  outline: none;
+}
+
+.range-calculator::-webkit-slider-runnable-track {
+  height: 1px;
+  cursor: pointer;
+  background: $gray-border;
+}
+.range-calculator::-webkit-slider-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 25px;
+  background: $blue-background;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6.5px;
+}
+
+.range-calculator:focus::-webkit-slider-runnable-track,
+.range-calculator::-ms-fill-lower,
+.range-calculator::-ms-fill-upper,
+.range-calculator:focus::-ms-fill-lower,
+.range-calculator:focus::-ms-fill-upper {
+  background: $gray-border;
+}
+
+.range-calculator::-moz-range-track {
+  height: 1px;
+  cursor: pointer;
+  background: $gray-border;
+}
+
+.range-calculator::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 25px;
+  background: $blue-background;
+  cursor: pointer;
+}
+
+.range-calculator::-ms-track {
+  height: 1px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.range-calculator::-ms-thumb {
+  margin-top: 1px;
+  height: 14px;
+  width: 14px;
+  border-radius: 25px;
+  background: $blue-background;
+  cursor: pointer;
+}

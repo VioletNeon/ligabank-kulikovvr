@@ -36,7 +36,7 @@
 }
 
 .services__tab-label {
-  @include font-special(bold);
+  @include font-special(500);
   @include font-size(18px, 21px);
 
   display: flex;
@@ -105,7 +105,7 @@
 }
 
 .services__tittle-text {
-  @include font-special(bold);
+  @include font-special(500);
   @include font-size(16px, 22px);
 
   padding: 0 24px 0 15px;
@@ -231,7 +231,7 @@
 }
 
 .services__text-link {
-  @include font-special(bold);
+  @include font-special(500);
 
   color: $black-text;
   text-decoration-line: underline;

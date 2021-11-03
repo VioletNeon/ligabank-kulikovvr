@@ -1,0 +1,50 @@
+.offer {
+  background-color: $white-background;
+  margin: 32px 0 48px 0;
+  padding: 40px 16px;
+  border-radius: 4px;
+}
+
+.offer__tittle {
+  @include font-special(500);
+  @include font-size(18px, 25px);
+
+  padding: 0 0 35px 0;
+  margin: 0;
+}
+
+.offer__list {
+  @include reset-list-style();
+
+}
+
+.offer__item {
+  margin: 0 0 19px 0;
+}
+
+.offer__value {
+  @include font-special(500);
+  @include font-size(18px, 25px);
+
+  margin: 0 0 7px 0;
+}
+
+.offer__description {
+  @include font-special(400);
+  @include font-size(16px, 22px);
+
+  margin: 0;
+}
+
+.offer__button {
+  @include font-special(500);
+  @include font-size(14px, 20px);
+
+  color: $white-background;
+  padding: 20px 0;
+  text-align: center;
+  background-color: $blue-background;
+  border-radius: 4px;
+  width: 100%;
+  border: none;
+}

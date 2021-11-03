@@ -1,0 +1,219 @@
+.steps {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.steps__text-tittle {
+  @include font-special(500);
+  @include font-size(16px, 22px);
+
+  margin: 0 0 20px 0;
+}
+
+.steps__text-tittle--center {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.steps__select {
+  @include font-special(500);
+  @include font-size(16px, 22px);
+
+  border: 1px solid $black-text;
+  border-radius: 4px;
+  width: 100%;
+  height: 60px;
+  padding: 0 13px 0 10px;
+  margin: 0 0 30px 0;
+  -webkit-appearance: none;
+  background-color: transparent;
+}
+
+.steps__select-tittle {
+  position: relative;
+}
+
+.steps__select-tittle:after {
+  content: "";
+  position: absolute;
+  right: 17px;
+  top: 3px;
+  width: 16px;
+  height: 10px;
+  background-image: url("../../../../src/img/nock.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+}
+
+.steps__wrapper {
+  margin: 0 0 20px 0;
+}
+
+.steps__input-wrapper {
+  margin: 15px 0 10px 0;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.steps__input-tittle {
+  @include font-special(400);
+  @include font-size(16px, 22px);
+
+  color: $blue-gray-text;
+}
+
+.steps__input-description {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  z-index: 1;
+}
+
+.steps__input-fee-description {
+  margin: 15px 0;
+}
+
+.steps__input {
+  @include font-special(500);
+  @include font-size(16px, 22px);
+
+  border: 1px solid $black-text;
+  border-radius: 4px;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.steps__button-plus {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  justify-self: flex-end;
+  z-index: 2;
+  position: relative;
+  margin: 0 15px 0 0;
+}
+
+
+.steps__button-plus svg {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.steps__button-minus {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  justify-self: flex-start;
+  z-index: 2;
+  position: relative;
+  margin: 0 0 0 15px;
+}
+
+.steps__button-minus svg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.steps__description {
+  @include font-special(400);
+  @include font-size(14px, 20px);
+
+  color: $dark-gray-text;
+}
+
+.steps__input-range {
+  width: 100%;
+}
+
+.steps__checkbox-tittle {
+  @include font-special(400);
+  @include font-size(14px, 20px);
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: $black-text;
+}
+
+.steps__checkbox-tittle > input:checked ~ .steps__checkbox-image path {
+  stroke: $white-background;
+}
+
+.steps__checkbox-image path {
+  stroke: transparent;
+}
+
+.steps__checkbox-tittle span {
+  margin-left: 9px;
+}
+
+.steps__checkbox-image {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: $blue-background;
+}
+
+.steps__list {
+  @include reset-list-style();
+
+  margin-bottom: 30px;
+}
+
+.steps__item {
+  border-bottom: 1px solid $gray-border;
+  padding: 20px 0;
+}
+
+.steps__value {
+  @include font-special(500);
+  @include font-size(18px, 25px);
+
+  margin: 0 0 5px 0;
+}
+
+.steps__description-tittle {
+  @include font-special(400);
+  @include font-size(16px, 22px);
+
+  margin: 0;
+  color: $blue-gray-text;
+}
+
+.steps__input-user-data {
+  @include font-special(400);
+  @include font-size(16px, 22px);
+
+  border: 1px solid $black-text;
+  border-radius: 4px;
+  width: 100%;
+  height: 60px;
+  padding: 0 15px;
+  margin: 0 0 20px 0;
+}
+
+.steps__description-wrapper {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.steps__user-data-wrapper {
+  margin: 0 0 10px 0;
+}
