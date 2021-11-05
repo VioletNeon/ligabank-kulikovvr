@@ -3,6 +3,7 @@ import Header from '../header/header';
 import Slider from '../slider/slider';
 import Services from '../services/services';
 import Calculator from '../calculator/calculator';
+import Footer from '../footer/footer';
 
 function MainScreen() {
   return (
@@ -14,6 +15,7 @@ function MainScreen() {
         <Services/>
         <Calculator/>
       </main>
+      <Footer/>
     </>
   )
 }

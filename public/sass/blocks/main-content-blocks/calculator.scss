@@ -1,5 +1,17 @@
 .calculator {
   padding: 0 15px;
+
+  @media (min-width: $tablet-width) {
+    padding: 0 45px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0 38px;
+  }
+
+  @media (min-width: $post-desktop-width) {
+    padding: 0 98px;
+  }
 }
 
 .calculator__tittle {
@@ -7,10 +19,33 @@
   @include font-size(22px, 31px);
 
   margin: 60px 0 30px 0;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(32px, 45px);
+
+    margin: 80px 0 45px 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    @include font-size(41px, 57px);
+
+    margin: 110px 0 70px 0;
+  }
 }
 
 .calculator__form {
   margin: 0 0 60px 0;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 0 80px 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0 0 110px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .calculator__form-button {
@@ -24,4 +59,15 @@
   border-radius: 4px;
   width: 100%;
   border: none;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(16px, 19px);
+
+    padding: 20px 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 20px 59px;
+    width: auto;
+  }
 }

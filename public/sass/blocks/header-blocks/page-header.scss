@@ -12,7 +12,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    padding: 0 60px;
+    padding: 0 40px;
   }
 
   @media (min-width: $post-desktop-width) {
@@ -72,8 +72,8 @@
     display: block;
     width: 16px;
     height: 1px;
-    background-color: $black-color;
-    box-shadow: 0 -5px 0 0 $black-color, 0 0px 0 0 $black-color, 0 5px 0 0 $black-color;
+    background-color: $black-text;
+    box-shadow: 0 -5px 0 0 $black-text, 0 0px 0 0 $black-text, 0 5px 0 0 $black-text;
     transform: rotate(0deg);
   }
 

@@ -15,7 +15,7 @@
   @media (min-width: $tablet-width) {
     display: flex;
     justify-content: flex-start;
-    margin-left: 200px;
+    margin-left: 188px;
     width: max-content;
     flex-wrap: wrap;
     -webkit-column-gap: 22px;
@@ -131,7 +131,7 @@
   &::after {
     content: "";
     position: absolute;
-    background-color: $black-color;
+    background-color: $black-text;
     width: 2px;
     height: 18px;
     top: 0;

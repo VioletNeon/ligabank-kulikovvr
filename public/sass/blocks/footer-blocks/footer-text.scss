@@ -1,0 +1,6 @@
+.footer-text {
+  @include font-special(400);
+  @include font-size(12px, 17px);
+
+  color: $dark-gray-text;
+}
