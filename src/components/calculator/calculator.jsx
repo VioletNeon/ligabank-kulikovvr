@@ -1,6 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Calculator() {
+  const [isSelectClosed, setSelectState] = useState(true);
+  const [selectOption, setSelectOption] = useState(null);
+
+  const handleToggleClick = () => {
+    setSelectState(!isSelectClosed);
+  };
+
+  const handleOptionClick = (evt) => {
+    if (evt.target.dataset.select !== 'option') {
+      return;
+    }
+    setSelectOption(evt.target.dataset.value);
+    setSelectState(!isSelectClosed);
+  };
+
   return (
     <section className="calculator">
       <h2 className="calculator__tittle">Кредитный калькулятор</h2>
@@ -9,14 +24,23 @@ function Calculator() {
           <fieldset className="steps">
             <p className="steps__text-tittle">Шаг 1. Цель кредита</p>
             <div className="steps__select-box" id="select-1">
-              <button type="button" className="steps__toggle" name="car" value="ford" data-select="toggle" data-index="1">Выберите из списка</button>
-              <ul className="steps__options">
+              <button
+                className={`steps__toggle ${isSelectClosed ? 'steps__toggle-down' : 'steps__toggle-up'}`}
+                type="button"
+                value="ford"
+                data-select="toggle"
+                data-index="1"
+                onClick={handleToggleClick}
+              >
+                {selectOption ? selectOption : 'Выберите цель кредита'}
+              </button>
+              <ul className={`steps__options ${isSelectClosed && 'visually-hidden'}`} onClick={handleOptionClick}>
                 <li className="steps__option steps__option_selected" data-select="option" data-value="Ипотечное кредитование" data-index="0">Ипотечное кредитование</li>
                 <li className="steps__option" data-select="option" data-value="Автомобильное кредитование" data-index="1">Автомобильное кредитование</li>
               </ul>
             </div>
           </fieldset>
-          <fieldset className="steps">
+          <fieldset className={`steps ${selectOption ? '' : 'visually-hidden'}`}>
             <p className="steps__text-tittle">Шаг 2. Введите параметры кредита</p>
             <div className="steps__wrapper">
               <span className="steps__input-tittle">Стоимость недвижимости</span>
@@ -79,7 +103,7 @@ function Calculator() {
               </label>
           </fieldset>
         </div>
-        <div className="offer">
+        <div className={`offer ${selectOption ? '' : 'visually-hidden'}`}>
           <div className="offer__wrapper">
             <p className="offer__tittle">Наше предложение</p>
             <ul className="offer__list">

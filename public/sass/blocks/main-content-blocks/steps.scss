@@ -26,7 +26,6 @@
 .steps__wrapper-parameters {
   @media (min-width: $desktop-width) {
     width: 50%;
-    justify-self: flex-start;
   }
 }
 
@@ -35,7 +34,7 @@
     background-color: $white-background;
     width: 66%;
     padding: 70px;
-    margin: 70px 0 0 0;
+    margin: 70px auto 0 auto;
     text-align: center;
   }
 }
@@ -98,14 +97,36 @@
   margin: 0 0 40px 0;
 }
 
-.steps__toggle:after {
+.steps__toggle-down:after {
   content: "";
   position: absolute;
   right: 17px;
   top: 30px;
   width: 16px;
   height: 10px;
-  background-image: url("../../../../src/img/nock.svg");
+  background-image: url("../../../../src/img/nock-down.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+
+  @media (min-width: $tablet-width) {
+    top: 33px;
+    right: 27px;
+  }
+
+  @media (min-width: $desktop-width) {
+    top: 30px;
+  }
+}
+
+.steps__toggle-up:after {
+  content: "";
+  position: absolute;
+  right: 17px;
+  top: 30px;
+  width: 16px;
+  height: 10px;
+  background-image: url("../../../../src/img/nock-up.svg");
   background-repeat: no-repeat;
   background-position: center center;
   z-index: -1;
