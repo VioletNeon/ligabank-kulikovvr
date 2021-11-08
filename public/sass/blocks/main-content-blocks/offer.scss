@@ -46,6 +46,41 @@
   }
 }
 
+.offer__tittle-popup {
+  @include font-special(500);
+  @include font-size(18px, 25px);
+
+  padding: 0 0 25px 0;
+  margin: 0;
+  width: 90%;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(22px, 31px);
+
+    width: 65%;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 100%;
+  }
+}
+
+.offer__text {
+  @include font-special(400);
+  @include font-size(16px, 22px);
+
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: $tablet-width) {
+    width: 50%;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 68%;
+  }
+}
+
 .offer__list {
   @include reset-list-style();
 

@@ -1,18 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
+import {scrollToBlock} from '../../utils';
 
-const MIN_PROPERTY_VALUE = 1200000;
-const MAX_PROPERTY_VALUE = 25000000;
 const EXAMPLE_PROPERTY_VALUE = '2000000';
 const EXAMPLE_LOAN_TERMS = '5';
-const STEP_PROPERTY_VALUE = 100000;
 const ONE_HUNDRED_PERCENT = 100;
 const TENTH_PART_PERCENT = 0.1;
 const NULL_MATERNAL_CAPITAL_VALUE = 0;
 const MATERNAL_CAPITAL_VALUE = 470000;
-const ESTIMATED_PERCENTAGE_LEVEL = 15;
-const LEAST_PERCENTAGE_RATE = '8,50';
-const MOST_PERCENTAGE_RATE = '9,40';
-const MIN_LOAN_AMOUNT = 500000;
 const NUMBER_OF_MONTHS_IN_YEAR = 12;
 const COEFFICIENT = 1;
 const PERMISSIBLE_PERCENTAGE_PAYMENT_OF_INCOME = 45;
@@ -33,11 +27,17 @@ const credit = {
     stepPropertyValue: 0,
     tittlePropertyValue: '',
     tittleLoanAmount: '',
+    descriptionTypeCredit: '',
     startCoefficientOfInitialFee: 0,
     startPercentagePartOfInitialFee: 0,
     minLoanAmount: 0,
     minLoanTerms: 0,
     maxLoanTerms: 0,
+    estimatedPercentageLevelMin: 0,
+    estimatedPercentageLevelMax: 0,
+    mostPercentageRate: '',
+    leastPercentageRate: '',
+    determiningFactorValue: 0,
   },
   [creditTypes.MORTGAGE_LENDING_TYPE]: {
     type: 'Ипотека',
@@ -46,11 +46,17 @@ const credit = {
     stepPropertyValue: 100000,
     tittlePropertyValue: 'Стоимость недвижимости',
     tittleLoanAmount: 'Сумма ипотеки',
+    descriptionTypeCredit: 'ипотечные кредиты',
     startCoefficientOfInitialFee: 0.1,
     startPercentagePartOfInitialFee: 10,
     minLoanAmount: 500000,
     minLoanTerms: 5,
     maxLoanTerms: 30,
+    estimatedPercentageLevelMin: 15,
+    estimatedPercentageLevelMax: 15,
+    mostPercentageRate: '9,40',
+    leastPercentageRate: '8,50',
+    determiningFactorValue: 0,
   },
   [creditTypes.AUTOMOBILE_LOAN_TYPE]: {
     type: 'Автокредит',
@@ -59,18 +65,24 @@ const credit = {
     stepPropertyValue: 50000,
     tittlePropertyValue: 'Стоимость автомобиля',
     tittleLoanAmount: 'Сумма автокредита',
+    descriptionTypeCredit: 'автокредиты',
     startCoefficientOfInitialFee: 0.2,
     startPercentagePartOfInitialFee: 20,
     minLoanAmount: 200000,
     minLoanTerms: 1,
     maxLoanTerms: 5,
+    estimatedPercentageLevelMin: 15,
+    estimatedPercentageLevelMax: 16,
+    mostPercentageRate: '8,50',
+    leastPercentageRate: '3,50',
+    determiningFactorValue: 2000000,
   },
 };
 
 const getTernaryItem = (item) => item.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 const getValidNumber = (value) => value.replace(",", ".");
 
-function Calculator() {
+function Calculator({calculatorSectionRef}) {
   const [isSelectClosed, setSelectState] = useState(true);
   const [selectOption, setSelectOption] = useState(creditTypes.DEFAULT_TITTLE_CREDIT_TYPE);
   const [propertyValue, setPropertyValue] = useState(EXAMPLE_PROPERTY_VALUE);
@@ -79,15 +91,33 @@ function Calculator() {
   const [isMaternalCapital, setMaternalCapitalState] = useState(false);
   const [isThreeStepHidden, setThreeStepState] = useState(true);
   const [applicationNumber, setApplicationNumber] = useState(START_APPLICATION_NUMBER);
-  const [isAutoInsurance, setAutoInsuranceState] = useState(false);
+  const [isAutoInsurance, setAutoInsuranceState] = useState(true);
   const [isLifeInsurance, setLifeInsuranceState] = useState(false);
+  const [telephoneNumber, setTelephoneNumber] = useState('');
+  const inputName = useRef(null);
 
   const creditPurpose = credit[selectOption];
   const maternalCapital = isMaternalCapital ? MATERNAL_CAPITAL_VALUE : NULL_MATERNAL_CAPITAL_VALUE;
   const isIncorrectPropertyValue = propertyValue > creditPurpose.maxPropertyValue || propertyValue < creditPurpose.minPropertyValue;
   const loanAmount = propertyValue - initialFee - maternalCapital;
   const percentageInitialFee = (initialFee * ONE_HUNDRED_PERCENT) / propertyValue;
-  const percentageRate = percentageInitialFee < ESTIMATED_PERCENTAGE_LEVEL ? MOST_PERCENTAGE_RATE : LEAST_PERCENTAGE_RATE;
+
+  const getPercentageRate = () => {
+    if (selectOption === creditTypes.MORTGAGE_LENDING_TYPE) {
+     return percentageInitialFee < creditPurpose.estimatedPercentageLevelMax ? creditPurpose.mostPercentageRate : creditPurpose.leastPercentageRate;
+    } else if (selectOption === creditTypes.AUTOMOBILE_LOAN_TYPE) {
+      let rate = propertyValue < creditPurpose.determiningFactorValue ? creditPurpose.estimatedPercentageLevelMax : creditPurpose.estimatedPercentageLevelMin;
+      if (isAutoInsurance && isLifeInsurance) {
+        rate = creditPurpose.leastPercentageRate;
+      } else if (isAutoInsurance || isLifeInsurance) {
+        rate = creditPurpose.mostPercentageRate;
+      }
+      return `${rate}`;
+    }
+    return creditPurpose.mostPercentageRate;
+  }
+
+  const percentageRate = getPercentageRate();
   const monthlyPercentageRate = (getValidNumber(percentageRate) / ONE_HUNDRED_PERCENT) / NUMBER_OF_MONTHS_IN_YEAR;
   const monthlyPayment = Math.round(loanAmount * (monthlyPercentageRate + monthlyPercentageRate / (((COEFFICIENT + monthlyPercentageRate) ** (loanTerms * NUMBER_OF_MONTHS_IN_YEAR)) - COEFFICIENT)));
   const requiredIncome = Math.round(monthlyPayment * ONE_HUNDRED_PERCENT / PERMISSIBLE_PERCENTAGE_PAYMENT_OF_INCOME);
@@ -222,6 +252,8 @@ function Calculator() {
       setApplicationNumber((prevState => {
         return `00${(+prevState + 1)}`;
       }));
+      inputName.current.focus();
+      scrollToBlock(inputName.current);
     }
 
     setThreeStepState(false);
@@ -235,10 +267,32 @@ function Calculator() {
     setLifeInsuranceState(evt.target.checked);
   };
 
+  const handleInputTelephoneChange = (evt) => {
+    const inputLoanTermsNumbers = evt.target.value.match(/[0-9]/g);
+    if (inputLoanTermsNumbers === null) {
+      setTelephoneNumber('');
+      return;
+    }
+
+    const [
+      , second = '', third = '', fourth = '', fifth = '',
+      sixth = '', seventh = '', eighth = '', ninth = '',
+      tenth = '', eleventh = ''
+    ] = inputLoanTermsNumbers;
+
+    switch (inputLoanTermsNumbers.length) {
+      case 1: setTelephoneNumber('+7'); break;
+      case 2: case 3: case 4: setTelephoneNumber(`+7 (${second}${third}${fourth}`); break;
+      case 5: case 6: case 7: setTelephoneNumber(`+7 (${second}${third}${fourth}) ${fifth}${sixth}${seventh}`); break;
+      case 8: case 9: setTelephoneNumber(`+7 (${second}${third}${fourth}) ${fifth}${sixth}${seventh} - ${eighth}${ninth}`); break;
+      case 10: case 11: default: setTelephoneNumber(`+7 (${second}${third}${fourth}) ${fifth}${sixth}${seventh} - ${eighth}${ninth} - ${tenth}${eleventh}`); break;
+    }
+  };
+
   return (
     <section className="calculator">
       <h2 className="calculator__tittle">Кредитный калькулятор</h2>
-      <form className="calculator__form">
+      <form className="calculator__form" ref={calculatorSectionRef}>
         <div className="steps__wrapper-parameters">
           <fieldset className="steps">
             <p className="steps__text-tittle">Шаг 1. Цель кредита</p>
@@ -400,8 +454,8 @@ function Calculator() {
               </label>
           </fieldset>
         </div>
-        <div className={`offer ${selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount >= creditPurpose.minLoanAmount ? '' : 'visually-hidden'}`}>
-          <div className="offer__wrapper">
+        <div className="offer">
+          <div className={`offer__wrapper ${selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount >= creditPurpose.minLoanAmount ? '' : 'visually-hidden'}`}>
             <p className="offer__tittle">Наше предложение</p>
             <ul className="offer__list">
               <li className="offer__item">
@@ -423,6 +477,10 @@ function Calculator() {
             </ul>
             <button className="offer__button" type="button" onClick={handleButtonOfferClick}>Оформить заявку</button>
           </div>
+        <div className={`offer__wrapper ${selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount < creditPurpose.minLoanAmount ? '' : 'visually-hidden'}`}>
+          <p className="offer__tittle-popup">Наш банк не выдаёт {creditPurpose.descriptionTypeCredit} меньше {getTernaryItem(`${creditPurpose.minLoanAmount}`)} рублей.</p>
+          <p className="offer__text">Попробуйте использовать другие параметры для расчёта.</p>
+        </div>
         </div>
         <div className={`${isThreeStepHidden ? 'visually-hidden' : 'steps__wrapper-registration'}`}>
           <fieldset className="steps">
@@ -438,7 +496,7 @@ function Calculator() {
               </li>
               <li className="steps__item">
                 <p className="steps__value">{getTernaryItem(propertyValue)} рублей</p>
-                <p className="steps__description-tittle">Стоимость недвижимости</p>
+                <p className="steps__description-tittle">{creditPurpose.tittlePropertyValue}</p>
               </li>
               <li className="steps__item">
                 <p className="steps__value">{getTernaryItem(initialFee)} рублей</p>
@@ -451,13 +509,13 @@ function Calculator() {
             </ul>
             <div className="steps__user-data-wrapper">
               <label className="steps__user-data-description steps__user-data-description--full-width" htmlFor="name">
-                <input className="steps__input-user-data" type="text" id="name" placeholder="ФИО"/>
+                <input className="steps__input-user-data" type="text" id="name" placeholder="ФИО" ref={inputName} required/>
               </label>
               <label className="steps__user-data-description" htmlFor="telephone">
-                <input className="steps__input-user-data" type="tel" id="telephone" placeholder="Телефон"/>
+                <input className="steps__input-user-data" type="tel" value={telephoneNumber} onChange={handleInputTelephoneChange} id="telephone" placeholder="Телефон" required/>
               </label>
               <label className="steps__user-data-description" htmlFor="email">
-                <input className="steps__input-user-data" type="email" id="email" placeholder="Email"/>
+                <input className="steps__input-user-data" type="email" id="email" placeholder="Email" required/>
               </label>
             </div>
           </fieldset>
