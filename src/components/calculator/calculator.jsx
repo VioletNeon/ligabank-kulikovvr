@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react';
+import ModalMessage from '../modal-message/modal-message';
 import {scrollToBlock} from '../../utils';
 
 const EXAMPLE_PROPERTY_VALUE = '2000000';
@@ -91,9 +92,12 @@ function Calculator({calculatorSectionRef}) {
   const [isMaternalCapital, setMaternalCapitalState] = useState(false);
   const [isThreeStepHidden, setThreeStepState] = useState(true);
   const [applicationNumber, setApplicationNumber] = useState(START_APPLICATION_NUMBER);
-  const [isAutoInsurance, setAutoInsuranceState] = useState(true);
+  const [isAutoInsurance, setAutoInsuranceState] = useState(false);
   const [isLifeInsurance, setLifeInsuranceState] = useState(false);
+  const [fullName, setFullName] = useState('');
   const [telephoneNumber, setTelephoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [isModalMessageOpen, setModalMessageState] = useState(false);
   const inputName = useRef(null);
 
   const creditPurpose = credit[selectOption];
@@ -289,6 +293,54 @@ function Calculator({calculatorSectionRef}) {
     }
   };
 
+  const handleInputNameChange = (evt) => {
+    const storageReviews = localStorage.getItem(evt.target.value);
+    if (!storageReviews) {
+      setFullName(evt.target.value);
+      return;
+    }
+
+    const userData = JSON.parse(localStorage.getItem(evt.target.value));
+
+    setFullName(userData.name);
+    setTelephoneNumber(userData.telephone);
+    setEmail(userData.email);
+  };
+
+  const handleInputEmailChange = (evt) => {
+    setEmail(evt.target.value);
+  };
+
+  const handleButtonFormClick = (evt) => {
+    evt.preventDefault();
+
+    if (fullName && telephoneNumber && email) {
+      localStorage.setItem(fullName, JSON.stringify({name: fullName, telephone: telephoneNumber, email: email}));
+      onModalMessageStateSet();
+      resetCalculatorState();
+    }
+  };
+
+  const resetCalculatorState = () => {
+    setSelectState(true);
+    setSelectOption(creditTypes.DEFAULT_TITTLE_CREDIT_TYPE);
+    setPropertyValue(EXAMPLE_PROPERTY_VALUE);
+    setInitialFee(`${propertyValue * TENTH_PART_PERCENT}`);
+    setLoanTerms(EXAMPLE_LOAN_TERMS);
+    setMaternalCapitalState(false);
+    setThreeStepState(true);
+    setAutoInsuranceState(false);
+    setLifeInsuranceState(false);
+    setFullName('');
+    setTelephoneNumber('');
+    setEmail('');
+  };
+
+  const onModalMessageStateSet = () => {
+    setModalMessageState(!isModalMessageOpen);
+    document.body.style.overflow = isModalMessageOpen ? 'visible' : 'hidden';
+  };
+
   return (
     <section className="calculator">
       <h2 className="calculator__tittle">Кредитный калькулятор</h2>
@@ -313,7 +365,7 @@ function Calculator({calculatorSectionRef}) {
               </ul>
             </div>
           </fieldset>
-          <fieldset className={`steps ${selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE ? '' : 'visually-hidden'}`}>
+          <fieldset className={selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE ? 'steps' : 'visually-hidden'}>
             <p className="steps__text-tittle">Шаг 2. Введите параметры кредита</p>
             <div className="steps__wrapper">
               <span className="steps__input-tittle">{creditPurpose.tittlePropertyValue}</span>
@@ -337,7 +389,7 @@ function Calculator({calculatorSectionRef}) {
                     value={getTernaryItem(propertyValue)}
                   />
                   <span className="steps__currency">рублей</span>
-                  <span className={`${isIncorrectPropertyValue ? 'steps__incorrect-value' : 'visually-hidden'}`}>Некорректное значение</span>
+                  <span className={isIncorrectPropertyValue ? 'steps__incorrect-value' : 'visually-hidden'}>Некорректное значение</span>
                 </label>
                 <button className="steps__button-plus" type="button" name="plus" onClick={handleButtonCounterClick}>
                   <span className="visually-hidden">Прибавить</span>
@@ -413,49 +465,49 @@ function Calculator({calculatorSectionRef}) {
                 <span className="steps__description">{creditPurpose.maxLoanTerms} {getValidDescription(`${creditPurpose.maxLoanTerms}`)}</span>
               </p>
             </div>
-              <label className={selectOption === creditTypes.MORTGAGE_LENDING_TYPE ? 'steps__checkbox-tittle' : 'visually-hidden'} htmlFor="maternal-capital">
-                <input
-                  className="visually-hidden"
-                  type="checkbox"
-                  id="maternal-capital"
-                  checked={isMaternalCapital}
-                  onChange={handleInputMaternalCapitalChange}
-                />
-                <svg className="steps__checkbox-image" viewBox="-3 -3 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 2.14286L3.5 5L7 1" stroke="#F6F7FF"/>
-                </svg>
-                <span>Использовать материнский капитал</span>
-              </label>
-              <label className={selectOption === creditTypes.MORTGAGE_LENDING_TYPE ? 'visually-hidden' : 'steps__checkbox-tittle'} htmlFor="auto-insurance">
-                <input
-                  className="visually-hidden"
-                  type="checkbox"
-                  id="auto-insurance"
-                  checked={isAutoInsurance}
-                  onChange={handleInputAutoInsuranceChange}
-                />
-                <svg className="steps__checkbox-image" viewBox="-3 -3 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 2.14286L3.5 5L7 1" stroke="#F6F7FF"/>
-                </svg>
-                <span>Оформить КАСКО в нашем банке</span>
-              </label>
-              <label className={selectOption === creditTypes.MORTGAGE_LENDING_TYPE ? 'visually-hidden' : 'steps__checkbox-tittle'} htmlFor="life-insurance">
-                <input
-                  className="visually-hidden"
-                  type="checkbox"
-                  id="life-insurance"
-                  checked={isLifeInsurance}
-                  onChange={handleInputLifeInsuranceChange}
-                />
-                <svg className="steps__checkbox-image" viewBox="-3 -3 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 2.14286L3.5 5L7 1" stroke="#F6F7FF"/>
-                </svg>
-                <span>Оформить Страхование жизни в нашем банке</span>
-              </label>
+            <label className={selectOption === creditTypes.MORTGAGE_LENDING_TYPE ? 'steps__checkbox-tittle' : 'visually-hidden'} htmlFor="maternal-capital">
+              <input
+                className="visually-hidden"
+                type="checkbox"
+                id="maternal-capital"
+                checked={isMaternalCapital}
+                onChange={handleInputMaternalCapitalChange}
+              />
+              <svg className="steps__checkbox-image" viewBox="-3 -3 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 2.14286L3.5 5L7 1" stroke="#F6F7FF"/>
+              </svg>
+              <span>Использовать материнский капитал</span>
+            </label>
+            <label className={selectOption === creditTypes.AUTOMOBILE_LOAN_TYPE ? 'steps__checkbox-tittle' : 'visually-hidden'} htmlFor="auto-insurance">
+              <input
+                className="visually-hidden"
+                type="checkbox"
+                id="auto-insurance"
+                checked={isAutoInsurance}
+                onChange={handleInputAutoInsuranceChange}
+              />
+              <svg className="steps__checkbox-image" viewBox="-3 -3 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 2.14286L3.5 5L7 1" stroke="#F6F7FF"/>
+              </svg>
+              <span>Оформить КАСКО в нашем банке</span>
+            </label>
+            <label className={selectOption === creditTypes.AUTOMOBILE_LOAN_TYPE ? 'steps__checkbox-tittle' : 'visually-hidden'} htmlFor="life-insurance">
+              <input
+                className="visually-hidden"
+                type="checkbox"
+                id="life-insurance"
+                checked={isLifeInsurance}
+                onChange={handleInputLifeInsuranceChange}
+              />
+              <svg className="steps__checkbox-image" viewBox="-3 -3 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 2.14286L3.5 5L7 1" stroke="#F6F7FF"/>
+              </svg>
+              <span>Оформить Страхование жизни в нашем банке</span>
+            </label>
           </fieldset>
         </div>
         <div className="offer">
-          <div className={`offer__wrapper ${selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount >= creditPurpose.minLoanAmount ? '' : 'visually-hidden'}`}>
+          <div className={selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount >= creditPurpose.minLoanAmount ? 'offer__wrapper' : 'visually-hidden'}>
             <p className="offer__tittle">Наше предложение</p>
             <ul className="offer__list">
               <li className="offer__item">
@@ -477,7 +529,7 @@ function Calculator({calculatorSectionRef}) {
             </ul>
             <button className="offer__button" type="button" onClick={handleButtonOfferClick}>Оформить заявку</button>
           </div>
-        <div className={`offer__wrapper ${selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount < creditPurpose.minLoanAmount ? '' : 'visually-hidden'}`}>
+        <div className={selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount < creditPurpose.minLoanAmount ? 'offer__wrapper' : 'visually-hidden'}>
           <p className="offer__tittle-popup">Наш банк не выдаёт {creditPurpose.descriptionTypeCredit} меньше {getTernaryItem(`${creditPurpose.minLoanAmount}`)} рублей.</p>
           <p className="offer__text">Попробуйте использовать другие параметры для расчёта.</p>
         </div>
@@ -509,19 +561,20 @@ function Calculator({calculatorSectionRef}) {
             </ul>
             <div className="steps__user-data-wrapper">
               <label className="steps__user-data-description steps__user-data-description--full-width" htmlFor="name">
-                <input className="steps__input-user-data" type="text" id="name" placeholder="ФИО" ref={inputName} required/>
+                <input className="steps__input-user-data" type="text" value={fullName} onChange={handleInputNameChange} id="name" placeholder="ФИО" ref={inputName} required/>
               </label>
               <label className="steps__user-data-description" htmlFor="telephone">
                 <input className="steps__input-user-data" type="tel" value={telephoneNumber} onChange={handleInputTelephoneChange} id="telephone" placeholder="Телефон" required/>
               </label>
               <label className="steps__user-data-description" htmlFor="email">
-                <input className="steps__input-user-data" type="email" id="email" placeholder="Email" required/>
+                <input className="steps__input-user-data" type="email" value={email} onChange={handleInputEmailChange} id="email" placeholder="Email" required/>
               </label>
             </div>
           </fieldset>
-          <button className="calculator__form-button" type="submit">Отправить</button>
+          <button className="calculator__form-button" type="submit" onClick={handleButtonFormClick}>Отправить</button>
         </div>
       </form>
+      {isModalMessageOpen && <ModalMessage onModalMessageStateSet={onModalMessageStateSet}/>}
     </section>
   )
 }
