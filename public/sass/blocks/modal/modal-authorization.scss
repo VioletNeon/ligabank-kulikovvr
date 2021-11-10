@@ -1,0 +1,222 @@
+.modal-authorization {
+  &:before {
+    content: "";
+    background: $basic-white-color;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+  }
+}
+
+.modal-authorization__wrapper {
+  @include position-zero();
+
+  position: fixed;
+  overflow: hidden;
+  margin: auto;
+  background-color: $white-background;
+  border: 4px solid $blue-background;
+  z-index: 15;
+  padding: 50px 16px;
+  width: 90%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet-width) {
+    width: 88%;
+    padding: 60px 88px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 60px 60px;
+    width: 53%;
+  }
+
+  @media (min-width: $post-desktop-width) {
+    padding: 60px 60px;
+    width: 40%;
+  }
+}
+
+.modal-authorization__logo-wrapper {
+  margin: 0 0 30px 0;
+  width: max-content;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 0 45px 0;
+  }
+}
+
+.modal-authorization__list {
+  @include reset-list-style();
+}
+
+.modal-authorization__item {
+  width: 100%;
+  margin: 0 0 25px 0;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 0 30px 0;
+  }
+}
+
+.modal-authorization__input-tittle {
+  @include font-special(400);
+  @include font-size(16px, 22px);
+
+  color: $blue-gray-text;
+  margin: 0 0 5px 0;
+}
+
+.modal-authorization__input-wrapper {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.modal-authorization__input-description {
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid $black-text;
+  border-radius: 4px;
+  height: 60px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  z-index: 1;
+  position: relative;
+}
+
+.modal-authorization__input {
+  @include font-special(500);
+  @include font-size(16px, 22px);
+
+  border: none;
+  width: 80%;
+  height: 100%;
+  text-align: left;
+  background-color: transparent;
+  padding: 0 0 0 20px;
+  outline: none;
+
+  @media (min-width: $desktop-width) {
+    @include font-size(18px, 25px);
+  }
+}
+
+.modal-authorization__icon-password-button {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  justify-self: flex-end;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+}
+
+.modal-authorization__link {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    @include font-special(400);
+    @include font-size(12px, 17px);
+
+    display: block;
+    color: $dark-gray-text;
+    width: max-content;
+    align-self: flex-end;
+    margin: 10px 0 0 0;
+  }
+}
+
+.modal-authorization__link-duplicate {
+  @include font-special(400);
+  @include font-size(14px, 20px);
+
+  color: $dark-gray-text;
+  width: max-content;
+  align-self: center;
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.modal-authorization__form-button {
+  @include font-special(500);
+  @include font-size(14px, 16px);
+
+  border-radius: 4px;
+  background-color: $blue-background;
+  color: $white-background;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  margin: 5px 0 15px 0;
+
+  @media (min-width: $tablet-width) {
+    @include font-size(18px, 21px);
+
+    margin: 0 0 0 0;
+    padding: 23px;
+  }
+}
+
+.modal-authorization__modal-close-button {
+  position: absolute;
+  top: 45px;
+  right: 17px;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+
+  @media (min-width: $tablet-width) {
+    top: 55px;
+    right: 87px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (min-width: $desktop-width) {
+    right: 59px;
+  }
+}
+
+.modal-authorization__modal-close-button::before,
+.modal-authorization__modal-close-button::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  width: 18px;
+  height: 2px;
+  background-color: $black-text;
+
+  @media (min-width: $tablet-width) {
+    width: 22px;
+  }
+}
+
+.modal-authorization__modal-close-button::before {
+  transform: rotate(45deg);
+}
+
+.modal-authorization__modal-close-button::after {
+  transform: rotate(-45deg);
+}

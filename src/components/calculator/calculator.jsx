@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import ModalMessage from '../modal-message/modal-message';
 import {scrollToBlock} from '../../utils';
+import StepFirst from "../step-first/step-first";
 
 const EXAMPLE_PROPERTY_VALUE = '2000000';
 const EXAMPLE_LOAN_TERMS = '5';
@@ -99,6 +100,7 @@ function Calculator({calculatorSectionRef}) {
   const [email, setEmail] = useState('');
   const [isModalMessageOpen, setModalMessageState] = useState(false);
   const inputName = useRef(null);
+  const userDataBox = useRef(null);
 
   const creditPurpose = credit[selectOption];
   const maternalCapital = isMaternalCapital ? MATERNAL_CAPITAL_VALUE : NULL_MATERNAL_CAPITAL_VALUE;
@@ -126,11 +128,7 @@ function Calculator({calculatorSectionRef}) {
   const monthlyPayment = Math.round(loanAmount * (monthlyPercentageRate + monthlyPercentageRate / (((COEFFICIENT + monthlyPercentageRate) ** (loanTerms * NUMBER_OF_MONTHS_IN_YEAR)) - COEFFICIENT)));
   const requiredIncome = Math.round(monthlyPayment * ONE_HUNDRED_PERCENT / PERMISSIBLE_PERCENTAGE_PAYMENT_OF_INCOME);
 
-  const handleToggleClick = () => {
-    setSelectState(!isSelectClosed);
-  };
-
-  const handleOptionClick = (evt) => {
+  const onOptionClick = (evt) => {
     if (evt.target.dataset.select !== 'option') {
       return;
     }
@@ -294,13 +292,13 @@ function Calculator({calculatorSectionRef}) {
   };
 
   const handleInputNameChange = (evt) => {
-    const storageReviews = localStorage.getItem(evt.target.value);
-    if (!storageReviews) {
+    const storageName = localStorage.getItem(evt.target.value);
+    if (!storageName) {
       setFullName(evt.target.value);
       return;
     }
 
-    const userData = JSON.parse(localStorage.getItem(evt.target.value));
+    const userData = JSON.parse(storageName);
 
     setFullName(userData.name);
     setTelephoneNumber(userData.telephone);
@@ -314,11 +312,17 @@ function Calculator({calculatorSectionRef}) {
   const handleButtonFormClick = (evt) => {
     evt.preventDefault();
 
-    if (fullName && telephoneNumber && email) {
-      localStorage.setItem(fullName, JSON.stringify({name: fullName, telephone: telephoneNumber, email: email}));
-      onModalMessageStateSet();
-      resetCalculatorState();
+    if (!fullName && !telephoneNumber && !email) {
+      userDataBox.current.classList.add("error-shake");
+      setTimeout(() => {
+        userDataBox.current.classList.remove("error-shake");
+      }, 600);
+      return;
     }
+
+    localStorage.setItem(fullName, JSON.stringify({name: fullName, telephone: telephoneNumber, email: email}));
+    onModalMessageStateSet();
+    resetCalculatorState();
   };
 
   const resetCalculatorState = () => {
@@ -346,25 +350,7 @@ function Calculator({calculatorSectionRef}) {
       <h2 className="calculator__tittle">Кредитный калькулятор</h2>
       <form className="calculator__form" ref={calculatorSectionRef}>
         <div className="steps__wrapper-parameters">
-          <fieldset className="steps">
-            <p className="steps__text-tittle">Шаг 1. Цель кредита</p>
-            <div className="steps__select-box" id="select-1">
-              <button
-                className={`steps__toggle ${isSelectClosed ? 'steps__toggle-down' : 'steps__toggle-up'}`}
-                type="button"
-                value="ford"
-                data-select="toggle"
-                data-index="1"
-                onClick={handleToggleClick}
-              >
-                {selectOption}
-              </button>
-              <ul className={`steps__options ${isSelectClosed && 'visually-hidden'}`} onClick={handleOptionClick}>
-                <li className="steps__option" data-select="option" data-value="Ипотечное кредитование" data-index="0">Ипотечное кредитование</li>
-                <li className="steps__option" data-select="option" data-value="Автомобильное кредитование" data-index="1">Автомобильное кредитование</li>
-              </ul>
-            </div>
-          </fieldset>
+          <StepFirst onOptionClick={onOptionClick} isSelectClosed={isSelectClosed} setSelectState={setSelectState} selectOption={selectOption}/>
           <fieldset className={selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE ? 'steps' : 'visually-hidden'}>
             <p className="steps__text-tittle">Шаг 2. Введите параметры кредита</p>
             <div className="steps__wrapper">
@@ -529,10 +515,10 @@ function Calculator({calculatorSectionRef}) {
             </ul>
             <button className="offer__button" type="button" onClick={handleButtonOfferClick}>Оформить заявку</button>
           </div>
-        <div className={selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount < creditPurpose.minLoanAmount ? 'offer__wrapper' : 'visually-hidden'}>
-          <p className="offer__tittle-popup">Наш банк не выдаёт {creditPurpose.descriptionTypeCredit} меньше {getTernaryItem(`${creditPurpose.minLoanAmount}`)} рублей.</p>
-          <p className="offer__text">Попробуйте использовать другие параметры для расчёта.</p>
-        </div>
+          <div className={selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE && loanAmount < creditPurpose.minLoanAmount ? 'offer__wrapper' : 'visually-hidden'}>
+            <p className="offer__tittle-popup">Наш банк не выдаёт {creditPurpose.descriptionTypeCredit} меньше {getTernaryItem(`${creditPurpose.minLoanAmount}`)} рублей.</p>
+            <p className="offer__text">Попробуйте использовать другие параметры для расчёта.</p>
+          </div>
         </div>
         <div className={`${isThreeStepHidden ? 'visually-hidden' : 'steps__wrapper-registration'}`}>
           <fieldset className="steps">
@@ -559,7 +545,7 @@ function Calculator({calculatorSectionRef}) {
                 <p className="steps__description-tittle">Срок кредитования</p>
               </li>
             </ul>
-            <div className="steps__user-data-wrapper">
+            <div className="steps__user-data-wrapper" ref={userDataBox}>
               <label className="steps__user-data-description steps__user-data-description--full-width" htmlFor="name">
                 <input className="steps__input-user-data" type="text" value={fullName} onChange={handleInputNameChange} id="name" placeholder="ФИО" ref={inputName} required/>
               </label>

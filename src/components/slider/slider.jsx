@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 
-function Slider({onButtonToCreditCalculatorClick}) {
+function Slider({onButtonToCreditCalculatorClick, onButtonToMapClick}) {
   const slider = useRef(null);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ function Slider({onButtonToCreditCalculatorClick}) {
         <div className="slider__slide slider__slide--third">
           <p className="slider__tittle-text">Лига Банк</p>
           <p className="slider__text">Всегда рядом</p>
-          <button className="slider__button slider__button--blue">Найти отделение</button>
+          <button className="slider__button slider__button--blue" onClick={onButtonToMapClick}>Найти отделение</button>
           <picture className="slider__image-wrapper">
             <source media="(min-width: 1365px)" srcSet={'img/girl-with-card-desktop.jpg'}/>
             <source media="(min-width: 768px)" srcSet={'img/girl-with-card-tab.jpg'}/>

@@ -5,7 +5,7 @@ const MODAL_MESSAGE_CLASS_NAME = 'modal-message';
 const KEY_ESCAPE_CODE = 27;
 
 function ModalMessage({onModalMessageStateSet}) {
-  const modal = useRef(null);
+  const modalMessage = useRef(null);
 
   const onEscKeyDown = (evt) => {
     if (evt.keyCode === KEY_ESCAPE_CODE) {
@@ -21,13 +21,13 @@ function ModalMessage({onModalMessageStateSet}) {
   };
 
   useEffect(() => {
-    trapFocus(modal.current);
+    trapFocus(modalMessage.current);
     document.addEventListener('keydown', onEscKeyDown);
     return () => document.removeEventListener('keydown', onEscKeyDown);
   });
 
   return (
-    <div className="modal-message" onClick={onOverlayModalClick} ref={modal}>
+    <div className="modal-message" onClick={onOverlayModalClick} ref={modalMessage}>
       <div className="modal-message__wrapper">
         <p className="modal-message__tittle-text">
           Спасибо за обращение в наш банк.
