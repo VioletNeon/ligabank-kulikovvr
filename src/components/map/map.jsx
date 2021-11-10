@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import leaflet from '../../../node_modules/leaflet/dist/leaflet';
 import '../../../node_modules/leaflet/dist/leaflet.css';
+import {cityPoints, CenterPointMap} from '../../mocks/mocks';
 import useMap from '../../hooks/use-map/use-map';
 
 const customIcon = leaflet.icon({
@@ -8,40 +9,6 @@ const customIcon = leaflet.icon({
   iconSize: [29, 33],
   iconAnchor: [14.5, 33],
 });
-
-const CenterPointMap = {
-  latitude: 56.751934,
-  longitude: 60.691237,
-  zoom: 5,
-};
-
-const cityPoints = [
-  {
-    name: 'Москва',
-    latitude: 55.761590,
-    longitude: 37.609460,
-  },
-  {
-    name: 'Казань',
-    latitude: 55.796244,
-    longitude: 49.111876,
-  },
-  {
-    name: 'Саратов',
-    latitude: 51.532522,
-    longitude: 46.036481,
-  },
-  {
-    name: 'Тюмень',
-    latitude: 57.152272,
-    longitude: 65.532796,
-  },
-  {
-    name: 'Омск',
-    latitude: 54.989792,
-    longitude: 73.374340,
-  }
-];
 
 function Map({mapRef}) {
   const map = useMap(mapRef, CenterPointMap);

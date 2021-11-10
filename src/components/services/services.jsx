@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 const KEY_ENTER_CODE = 13;
 const TAB_LABEL_CLASS_NAME = 'services__tab-label';
+const DEFAULT_INPUT_TAB_ID = 'tab_1';
 
 function Services() {
-  const [value, setValue] = useState('tab_1');
+  const [value, setValue] = useState(DEFAULT_INPUT_TAB_ID);
 
   const onTabChange = (evt) => {
     setValue(evt.target.value);
@@ -26,7 +27,15 @@ function Services() {
     <section className="services">
       <h2 className="visually-hidden">Услуги</h2>
       <div className="services__tabs-wrapper">
-        <input className="visually-hidden" type="radio" checked={value === 'tab_1'} name="inset" value="tab_1" id="tab_1" onChange={onTabChange}/>
+        <input
+          className="visually-hidden"
+          type="radio"
+          checked={value === 'tab_1'}
+          name="inset"
+          value="tab_1"
+          id="tab_1"
+          onChange={onTabChange}
+        />
         <label className="services__tab-label" htmlFor="tab_1" tabIndex="0">
           <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.20734 26.063H29.7924V4.36579H4.20734V26.063ZM12.8681 11.7959C14.4742 11.7959 15.8268 12.8933 16.2055 14.3724H23.727V16.056H16.2055C15.8267 17.5352 14.4742 18.6327 12.8681 18.6327C10.9695 18.6327 9.42492 17.0991 9.42492 15.2142C9.42483 13.3294 10.9695 11.7959 12.8681 11.7959Z" fill="#2C36F2"/>
@@ -34,7 +43,15 @@ function Services() {
           </svg>
           <span className="services__tab">Вклады</span>
         </label>
-        <input className="visually-hidden" type="radio" checked={value === 'tab_2'} name="inset" value="tab_2" id="tab_2" onChange={onTabChange}/>
+        <input
+          className="visually-hidden"
+          type="radio"
+          checked={value === 'tab_2'}
+          name="inset"
+          value="tab_2"
+          id="tab_2"
+          onChange={onTabChange}
+        />
         <label className="services__tab-label" htmlFor="tab_2" tabIndex="0">
           <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M32.7022 4.39716L11.8788 0.0350432C10.9978 -0.149457 10.1246 0.413172 9.93822 1.28524L9.54261 3.80181L33.5692 8.83467L33.9649 6.31811C34.1512 5.44636 33.5832 4.58172 32.7022 4.39716Z" fill="#565EF5"/>
@@ -43,14 +60,30 @@ function Services() {
           </svg>
           <span className="services__tab">Кредиты</span>
         </label>
-        <input className="visually-hidden" type="radio" checked={value === 'tab_3'} name="inset" value="tab_3" id="tab_3" onChange={onTabChange}/>
+        <input
+          className="visually-hidden"
+          type="radio"
+          checked={value === 'tab_3'}
+          name="inset"
+          value="tab_3"
+          id="tab_3"
+          onChange={onTabChange}
+        />
         <label className="services__tab-label" htmlFor="tab_3" tabIndex="0">
           <svg width="28" height="34" viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M27.9234 5.31216C22.1552 5.31216 17.7362 3.65462 13.9995 0C10.2631 3.65462 5.84431 5.31216 0.0766133 5.31216C0.0766133 14.8295 -1.88138 28.4631 13.9994 34C29.8813 28.4632 27.9234 14.8296 27.9234 5.31216ZM12.8461 22.0601L8.2074 17.3939L10.2843 15.3051L12.8461 17.8823L17.7151 12.9849L19.7919 15.0737L12.8461 22.0601Z" fill="#565EF5"/>
           </svg>
           <span className="services__tab">Страхование</span>
         </label>
-        <input className="visually-hidden" type="radio" checked={value === 'tab_4'} name="inset" value="tab_4" id="tab_4" onChange={onTabChange}/>
+        <input
+          className="visually-hidden"
+          type="radio"
+          checked={value === 'tab_4'}
+          name="inset"
+          value="tab_4"
+          id="tab_4"
+          onChange={onTabChange}
+        />
         <label className="services__tab-label" htmlFor="tab_4" tabIndex="0">
           <svg width="20" height="34" viewBox="0 0 20 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.6746 0H2.3254C1.04663 0 0 1.03263 0 2.29646V31.7026C0 32.9664 1.04663 34 2.3254 34H17.6746C18.9534 34 20 32.9683 20 31.7035V2.29646C20 1.03263 18.9534 0 17.6746 0ZM7.54476 1.65531H12.4552C12.6107 1.65531 12.7366 1.77966 12.7366 1.93411C12.7366 2.0876 12.6107 2.21194 12.4552 2.21194H7.54476C7.38934 2.21194 7.26343 2.0876 7.26343 1.93411C7.26343 1.77966 7.38934 1.65531 7.54476 1.65531ZM10 32.8518C9.35766 32.8518 8.8373 32.3379 8.8373 31.7026C8.8373 31.0673 9.35766 30.5543 10 30.5543C10.6423 30.5543 11.1627 31.0673 11.1627 31.7026C11.1627 32.3379 10.6423 32.8518 10 32.8518ZM18.3819 29.75H1.61814V3.64189H18.3819V29.75Z" fill="#565EF5"/>

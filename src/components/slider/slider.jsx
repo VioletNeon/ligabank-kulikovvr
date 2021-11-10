@@ -1,5 +1,8 @@
 import React, {useRef, useEffect} from 'react';
 
+const SWIPE_TIMER = 4000;
+const INITIAL_POSITION_OF_SLIDER = 0;
+
 function Slider({onButtonToCreditCalculatorClick, onButtonToMapClick}) {
   const slider = useRef(null);
 
@@ -9,13 +12,13 @@ function Slider({onButtonToCreditCalculatorClick, onButtonToMapClick}) {
       const currentSliderWidth = slider.current.clientWidth;
 
       if ((slider.current.scrollWidth - currentSliderWidth) === (currentScrollPosition)) {
-        slider.current.scrollLeft = 0;
+        slider.current.scrollLeft = INITIAL_POSITION_OF_SLIDER;
         return;
       }
       slider.current.scrollLeft = currentScrollPosition + currentSliderWidth;
     };
 
-    const swipeSlideTimerID = setInterval(() => swipeSlide(), 4000);
+    const swipeSlideTimerID = setInterval(() => swipeSlide(), SWIPE_TIMER);
 
     return () => clearInterval(swipeSlideTimerID);
   });

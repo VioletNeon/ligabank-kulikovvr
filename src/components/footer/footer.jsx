@@ -1,30 +1,29 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 function Footer() {
   return (
     <footer className="page-footer">
       <div className="page-footer__wrapper">
         <div className="page-footer__about-company-wrapper">
-          <Link className="page-footer__logo-link" to="#">
+          <a className="page-footer__logo-link" href="#">
             <img className="page-footer__logo" src={'img/logo.svg'} width="115" height="17" alt="Лига банк"/>
-          </Link>
+          </a>
         </div>
         <p className="page-footer__text footer-text">
           150015, г. Москва, ул. Московская, д. 32 Генеральная лицензия Банка России №1050 Ⓒ Лига Банк, 2019
         </p>
         <ul className="page-footer__nav-list">
           <li className="page-footer__nav-item">
-            <Link className="page-footer__nav-link" to="#">Услуги</Link>
+            <a className="page-footer__nav-link" href="#">Услуги</a>
           </li>
           <li className="page-footer__nav-item">
-            <Link className="page-footer__nav-link" to="#">Рассчитать кредит</Link>
+            <a className="page-footer__nav-link" href="#">Рассчитать кредит</a>
           </li>
           <li className="page-footer__nav-item">
-            <Link className="page-footer__nav-link" to="#">Контакты</Link>
+            <a className="page-footer__nav-link" href="#">Контакты</a>
           </li>
           <li className="page-footer__nav-item">
-            <Link className="page-footer__nav-link" to="#">Задать вопрос</Link>
+            <a className="page-footer__nav-link" href="#">Задать вопрос</a>
           </li>
         </ul>
         <ul className="page-footer__contacts-list">
@@ -49,36 +48,36 @@ function Footer() {
         </ul>
         <ul className="social__list">
           <li className="social__item">
-            <Link className="social__link" to={'https://www.facebook.com'}>
+            <a className="social__link" href={'https://www.facebook.com'}>
               <span className="visually-hidden">Мы в Фейсбуке</span>
               <svg className="social__link-logo" width="9" height="16" fill="none">
                 <use xlinkHref="#footer-facebook-logo"/>
               </svg>
-            </Link>
+            </a>
           </li>
           <li className="social__item">
-            <Link className="social__link" to={'https://www.instagram.com'}>
+            <a className="social__link" href={'https://www.instagram.com'}>
               <span className="visually-hidden">Мы в Инстаграме</span>
               <svg className="social__link-logo" width="16" height="16" fill="none">
                 <use xlinkHref="#footer-instagram-logo"/>
               </svg>
-            </Link>
+            </a>
           </li>
           <li className="social__item">
-            <Link className="social__link" to={'https://twitter.com'}>
+            <a className="social__link" href={'https://twitter.com'}>
               <span className="visually-hidden">Мы в Твиттер</span>
               <svg className="social__link-logo" width="16" height="13" fill="none">
                 <use xlinkHref="#footer-twitter-logo"/>
               </svg>
-            </Link>
+            </a>
           </li>
           <li className="social__item">
-            <Link className="social__link" to={'https://www.youtube.com'}>
+            <a className="social__link" href={'https://www.youtube.com'}>
               <span className="visually-hidden">Мы на Ютуб</span>
               <svg className="social__link-logo" width="16" height="13" fill="none">
                 <use xlinkHref="#footer-youtube-logo"/>
               </svg>
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

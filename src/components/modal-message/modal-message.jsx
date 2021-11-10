@@ -35,7 +35,13 @@ function ModalMessage({onModalMessageStateSet}) {
         <p className="modal-message__text">
           Наш менеджер скоро свяжется с&nbsp;вами по указанному номеру телефона.
         </p>
-        <button className="modal-message__modal-close-button" type="button" aria-label="Закрыть" onClick={onModalMessageStateSet} tabIndex="0">
+        <button
+          className="modal-message__modal-close-button"
+          type="button"
+          aria-label="Закрыть"
+          onClick={onModalMessageStateSet}
+          tabIndex="0"
+        >
         </button>
       </div>
     </div>

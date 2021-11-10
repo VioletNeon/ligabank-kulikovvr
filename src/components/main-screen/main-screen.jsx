@@ -1,4 +1,5 @@
 import React, {useRef, useState} from 'react';
+import {scrollToBlock} from '../../utils';
 import Header from '../header/header';
 import Slider from '../slider/slider';
 import Services from '../services/services';
@@ -6,7 +7,6 @@ import Calculator from '../calculator/calculator';
 import ModalAuthorization from '../modal-authorization/modal-authorization';
 import Map from '../map/map';
 import Footer from '../footer/footer';
-import {scrollToBlock} from '../../utils';
 
 function MainScreen() {
   const [isModalAuthorizationOpen, setModalAuthorizationState] = useState(false);
@@ -31,11 +31,18 @@ function MainScreen() {
       <Header onModalAuthorizationStateSet={onModalAuthorizationStateSet}/>
       <main className="page-main">
         <h1 className="visually-hidden">Услуги Лига Банк</h1>
-        <Slider onButtonToCreditCalculatorClick={onButtonToCreditCalculatorClick} onButtonToMapClick={onButtonToMapClick}/>
+        <Slider
+          onButtonToCreditCalculatorClick={onButtonToCreditCalculatorClick}
+          onButtonToMapClick={onButtonToMapClick}
+        />
         <Services/>
-        <Calculator calculatorSectionRef={calculatorSectionRef}/>
+        <Calculator
+          calculatorSectionRef={calculatorSectionRef}
+        />
         {isModalAuthorizationOpen && <ModalAuthorization onModalAuthorizationStateSet={onModalAuthorizationStateSet}/>}
-        <Map mapRef={mapRef}/>
+        <Map
+          mapRef={mapRef}
+        />
       </main>
       <Footer/>
     </>
