@@ -136,7 +136,7 @@ function Services() {
               </li>
             </ul>
             <p className="services__text-description">Рассчитайте ежемесячный платеж и&nbsp;ставку по кредиту воспользовавшись нашим&nbsp;
-              <Link className="services__text-link" to="">
+              <Link className="services__text-link" to="#">
                 кредитным калькулятором
               </Link>
             </p>

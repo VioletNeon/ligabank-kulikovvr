@@ -141,4 +141,8 @@
 
     margin: 5px 0 0 0;
   }
+
+  &:hover {
+    box-shadow: 0 0 3px 3px $blue-background;
+  }
 }

@@ -47,14 +47,14 @@ function Footer() {
             </p>
           </li>
         </ul>
-        <ul className="social__list">
+        <ul className="social">
           <li className="social__item">
-            <Link className="social__link" to={'https://www.facebook.com'}>
+            <a className="social__link" href={'https://www.facebook.com'}>
               <span className="visually-hidden">Мы в Фейсбуке</span>
               <svg className="social__link-logo" width="9" height="16" fill="none">
                 <use xlinkHref="#footer-facebook-logo"/>
               </svg>
-            </Link>
+            </a>
           </li>
           <li className="social__item">
             <a className="social__link" href={'https://www.instagram.com'}>

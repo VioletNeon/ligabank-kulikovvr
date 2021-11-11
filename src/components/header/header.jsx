@@ -15,7 +15,7 @@ function Header({onModalAuthorizationStateSet}) {
         <button className="page-header__burger" type="button" onClick={handleButtonMenuClick}>
           <span className="visually-hidden">Открыть меню</span>
         </button>
-        <Link className="page-header__logo-link" to=''>
+        <Link className="page-header__logo-link" to='#'>
           <img className="page-header__logo" src={'img/logo.svg'} width="115" height="17" alt="Лига Банк"/>
         </Link>
       </div>

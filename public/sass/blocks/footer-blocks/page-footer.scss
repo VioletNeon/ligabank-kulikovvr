@@ -200,4 +200,12 @@
 .page-footer__nav-link {
   text-decoration: none;
   color: $black-text;
+
+  &:hover {
+    text-shadow: $gray-border 1px 1px 1px, $gray-border -1px -1px 1px, $gray-border 1px -1px 1px, $gray-border -1px 1px 1px;
+  }
+}
+
+.page-footer__logo-link {
+  cursor: default;
 }

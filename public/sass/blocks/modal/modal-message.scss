@@ -21,7 +21,8 @@
   z-index: 10001;
   padding: 40px 27px;
   width: 90%;
-  height: max-content;
+  height: min-content;
+  box-sizing: content-box;
   border-radius: 4px;
 
   @media (min-width: $tablet-width) {

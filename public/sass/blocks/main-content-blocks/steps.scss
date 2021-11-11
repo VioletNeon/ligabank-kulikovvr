@@ -23,22 +23,6 @@
   }
 }
 
-.steps__wrapper-parameters {
-  @media (min-width: $desktop-width) {
-    width: 50%;
-  }
-}
-
-.steps__wrapper-registration {
-  @media (min-width: $desktop-width) {
-    background-color: $white-background;
-    width: 66%;
-    padding: 70px;
-    margin: 70px auto 0 auto;
-    text-align: center;
-  }
-}
-
 .steps__text-tittle--center {
   text-align: center;
   margin-bottom: 25px;
@@ -90,9 +74,16 @@
   padding: 20px 30px 20px 15px;
   width: 100%;
   text-align: left;
+  cursor: pointer;
 
   @media (min-width: $tablet-width) {
     padding: 20px 25px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 2px $gray-border;
+    border: -2px solid $black-text;
+    border-radius: 4px;
   }
 }
 
@@ -188,6 +179,10 @@
   grid-row: 1 / 2;
   z-index: 1;
   position: relative;
+
+  &:hover  {
+    box-shadow: 0 0 0 2px $gray-border;
+  }
 }
 
 .steps__input-description--incorrect {
@@ -291,10 +286,15 @@
   justify-content: flex-start;
   align-items: center;
   color: $black-text;
+  cursor: pointer;
 
   @media (min-width: $tablet-width) {
     @include font-size(16px, 22px);
   }
+}
+
+.steps__checkbox-tittle:hover .steps__checkbox-image {
+  box-shadow: 0 0 1px 1px $blue-background;
 }
 
 .steps__checkbox-tittle > input:checked ~ .steps__checkbox-image path {
@@ -376,6 +376,10 @@
 
   @media (min-width: $desktop-width) {
     background-color: $white-background;
+  }
+
+  &:hover {
+    box-shadow: 0 0 2px 2px $gray-border;
   }
 }
 

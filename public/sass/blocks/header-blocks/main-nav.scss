@@ -77,6 +77,10 @@
   @media (min-width: $desktop-width) {
     @include font-size(16px, 18.75px);
   }
+
+  &:hover {
+    text-shadow: $gray-border 1px 1px 1px, $gray-border -1px -1px 1px, $gray-border 1px -1px 1px, $gray-border -1px 1px 1px;
+  }
 }
 
 @media (max-width: $mobile-width-only) {
@@ -170,6 +174,10 @@
   @media (min-width: $desktop-width) {
     padding: 38px 0 0 0;
     height: min-content;
+  }
+
+  &:hover {
+    text-shadow: $gray-border 1px 1px 1px, $gray-border -1px -1px 1px, $gray-border 1px -1px 1px, $gray-border -1px 1px 1px;
   }
 }
 

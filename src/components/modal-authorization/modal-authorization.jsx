@@ -86,6 +86,7 @@ function ModalAuthorization({onModalAuthorizationStateSet}) {
                   value={login}
                   onChange={handleInputLoginChange}
                   id="popup-login"
+                  required
                 />
               </label>
             </li>
@@ -99,6 +100,7 @@ function ModalAuthorization({onModalAuthorizationStateSet}) {
                     value={password}
                     onChange={handleInputPasswordChange}
                     id="popup-password"
+                    required
                   />
                 </label>
                 <button

@@ -123,7 +123,7 @@ function Calculator({calculatorSectionRef}) {
     <section className="calculator">
       <h2 className="calculator__tittle">Кредитный калькулятор</h2>
       <form className="calculator__form" ref={calculatorSectionRef}>
-        <div className="steps__wrapper-parameters">
+        <div className="calculator__wrapper-parameters">
           <fieldset className="steps">
             <p className="steps__text-tittle">Шаг 1. Цель кредита</p>
             <CreditType
@@ -177,7 +177,7 @@ function Calculator({calculatorSectionRef}) {
           inputName={inputName}
           setThreeStepState={setThreeStepState}
         />
-        <div className={`${isThreeStepHidden ? 'visually-hidden' : 'steps__wrapper-registration'}`}>
+        <div className={`${isThreeStepHidden ? 'visually-hidden' : 'calculator__wrapper-registration'}`}>
           <RegistrationOfApplication
             applicationNumber={applicationNumber}
             creditPurpose={creditPurpose}
