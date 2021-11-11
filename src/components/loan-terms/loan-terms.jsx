@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {TIMER_IN_MILLISECONDS} from '../../const';
 import {getValidDescription} from '../../utils';
 
@@ -34,8 +35,6 @@ function LoanTerms({loanTerms, creditPurpose, setLoanTerms}) {
   const handleInputLoanTermsRangeChange = (evt) => {
     setLoanTerms(evt.target.value);
   };
-
-
 
   return (
     <div className="steps__wrapper">
@@ -80,5 +79,11 @@ function LoanTerms({loanTerms, creditPurpose, setLoanTerms}) {
     </div>
   );
 }
+
+LoanTerms.propTypes = {
+  loanTerms: PropTypes.string.isRequired,
+  creditPurpose: PropTypes.object.isRequired,
+  setLoanTerms: PropTypes.func.isRequired,
+};
 
 export default LoanTerms;

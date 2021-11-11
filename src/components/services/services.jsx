@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 const KEY_ENTER_CODE = 13;
 const TAB_LABEL_CLASS_NAME = 'services__tab-label';
@@ -106,7 +107,7 @@ function Services() {
                 <p className="services__text">Возможность ежемесячной капитализации или вывод процентов на банковскую карту</p>
               </li>
             </ul>
-            <a className="services__button" href="#">Узнать подробнее</a>
+            <Link className="services__button" to="#">Узнать подробнее</Link>
           </div>
           <picture className="services__image-wrapper">
             <source media="(min-width: 1024px)" srcSet="img/piggybank-desktop@1x.jpg, img/piggybank-desktop@2x.jpg 2x"/>
@@ -135,9 +136,9 @@ function Services() {
               </li>
             </ul>
             <p className="services__text-description">Рассчитайте ежемесячный платеж и&nbsp;ставку по кредиту воспользовавшись нашим&nbsp;
-              <a className="services__text-link" href="#">
+              <Link className="services__text-link" to="">
                 кредитным калькулятором
-              </a>
+              </Link>
             </p>
           </div>
           <picture className="services__image-wrapper">
@@ -166,7 +167,7 @@ function Services() {
                 <p className="services__text">Страхование недвижимости</p>
               </li>
             </ul>
-            <a className="services__button" href="#">Узнать подробнее</a>
+            <Link className="services__button" to="#">Узнать подробнее</Link>
           </div>
           <picture className="services__image-wrapper">
             <source media="(min-width: 1024px)" srcSet="img/lock-desktop@1x.jpg, img/lock-desktop@2x.jpg 2x"/>
@@ -191,7 +192,7 @@ function Services() {
                 <p className="services__text">Приложение Лига-проездной позволит вам&nbsp;плачивать билеты по всему миру</p>
               </li>
             </ul>
-            <a className="services__button" href="#">Узнать подробнее</a>
+            <Link className="services__button" to="#">Узнать подробнее</Link>
           </div>
           <picture className="services__image-wrapper">
             <source media="(min-width: 1024px)" srcSet="img/smartphone-desktop@1x.jpg, img/smartphone-desktop@2x.jpg 2x"/>
@@ -207,7 +208,7 @@ function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default Services;

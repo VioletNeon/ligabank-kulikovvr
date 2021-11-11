@@ -46,7 +46,7 @@ function MainScreen() {
       </main>
       <Footer/>
     </>
-  )
+  );
 }
 
 export default MainScreen;

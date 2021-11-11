@@ -1,29 +1,30 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Footer() {
   return (
     <footer className="page-footer">
       <div className="page-footer__wrapper">
         <div className="page-footer__about-company-wrapper">
-          <a className="page-footer__logo-link" href="#">
+          <Link className="page-footer__logo-link" to='#'>
             <img className="page-footer__logo" src={'img/logo.svg'} width="115" height="17" alt="Лига банк"/>
-          </a>
+          </Link>
         </div>
         <p className="page-footer__text footer-text">
           150015, г. Москва, ул. Московская, д. 32 Генеральная лицензия Банка России №1050 Ⓒ Лига Банк, 2019
         </p>
         <ul className="page-footer__nav-list">
           <li className="page-footer__nav-item">
-            <a className="page-footer__nav-link" href="#">Услуги</a>
+            <Link className="page-footer__nav-link" to='#'>Услуги</Link>
           </li>
           <li className="page-footer__nav-item">
-            <a className="page-footer__nav-link" href="#">Рассчитать кредит</a>
+            <Link className="page-footer__nav-link" to='#'>Рассчитать кредит</Link>
           </li>
           <li className="page-footer__nav-item">
-            <a className="page-footer__nav-link" href="#">Контакты</a>
+            <Link className="page-footer__nav-link" to='#'>Контакты</Link>
           </li>
           <li className="page-footer__nav-item">
-            <a className="page-footer__nav-link" href="#">Задать вопрос</a>
+            <Link className="page-footer__nav-link" to='#'>Задать вопрос</Link>
           </li>
         </ul>
         <ul className="page-footer__contacts-list">
@@ -48,12 +49,12 @@ function Footer() {
         </ul>
         <ul className="social__list">
           <li className="social__item">
-            <a className="social__link" href={'https://www.facebook.com'}>
+            <Link className="social__link" to={'https://www.facebook.com'}>
               <span className="visually-hidden">Мы в Фейсбуке</span>
               <svg className="social__link-logo" width="9" height="16" fill="none">
                 <use xlinkHref="#footer-facebook-logo"/>
               </svg>
-            </a>
+            </Link>
           </li>
           <li className="social__item">
             <a className="social__link" href={'https://www.instagram.com'}>

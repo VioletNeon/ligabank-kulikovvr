@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {creditTypes} from '../../const';
 import {getTernaryItem, scrollToBlock} from '../../utils';
 
@@ -13,14 +14,12 @@ function Offer(props) {
     isThreeStepHidden,
     setApplicationNumber,
     inputName,
-    setThreeStepState
+    setThreeStepState,
   } = props;
 
   const handleButtonOfferClick = () => {
     if (isThreeStepHidden) {
-      setApplicationNumber((prevState => {
-        return `00${(+prevState + 1)}`;
-      }));
+      setApplicationNumber((prevState) => `00${(+prevState + 1)}`);
       inputName.current.focus();
       scrollToBlock(inputName.current);
     }
@@ -61,7 +60,20 @@ function Offer(props) {
         </p>
       </div>
     </div>
-  )
+  );
 }
+
+Offer.propTypes = {
+  selectOption: PropTypes.string.isRequired,
+  loanAmount: PropTypes.number.isRequired,
+  creditPurpose: PropTypes.object.isRequired,
+  percentageRate: PropTypes.string.isRequired,
+  monthlyPayment: PropTypes.number.isRequired,
+  requiredIncome: PropTypes.number.isRequired,
+  isThreeStepHidden: PropTypes.bool.isRequired,
+  setApplicationNumber: PropTypes.func.isRequired,
+  inputName: PropTypes.object.isRequired,
+  setThreeStepState: PropTypes.func.isRequired,
+};
 
 export default Offer;

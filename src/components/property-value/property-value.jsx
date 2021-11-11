@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {getTernaryItem} from '../../utils';
 
 const NAME_BUTTON_PLUS = 'plus';
@@ -9,7 +10,7 @@ function PropertyValue(props) {
     propertyValue,
     setPropertyValue,
     setInitialFee,
-    isIncorrectPropertyValue
+    isIncorrectPropertyValue,
   } = props;
 
   const handleButtonCounterClick = (evt) => {
@@ -78,7 +79,15 @@ function PropertyValue(props) {
         </span>
       </p>
     </div>
-  )
+  );
 }
+
+PropertyValue.propTypes = {
+  creditPurpose: PropTypes.object.isRequired,
+  propertyValue: PropTypes.string.isRequired,
+  setPropertyValue: PropTypes.func.isRequired,
+  setInitialFee: PropTypes.func.isRequired,
+  isIncorrectPropertyValue: PropTypes.bool.isRequired,
+};
 
 export default PropertyValue;

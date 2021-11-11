@@ -1,5 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
+import PropTypes from 'prop-types';
 import {trapFocus} from '../../utils';
+import {Link} from 'react-router-dom';
 
 const MODAL_MESSAGE_CLASS_NAME = 'modal-authorization';
 const KEY_ESCAPE_CODE = 27;
@@ -111,7 +113,7 @@ function ModalAuthorization({onModalAuthorizationStateSet}) {
                   </svg>
                 </button>
               </div>
-              <a className="modal-authorization__link" href="#">Забыли пароль?</a>
+              <Link className="modal-authorization__link" to="#">Забыли пароль?</Link>
             </li>
           </ul>
           <button
@@ -130,10 +132,14 @@ function ModalAuthorization({onModalAuthorizationStateSet}) {
           tabIndex="0"
         >
         </button>
-        <a className="modal-authorization__link-duplicate" href="#">Забыли пароль?</a>
+        <Link className="modal-authorization__link-duplicate" to="#">Забыли пароль?</Link>
       </div>
     </div>
   );
 }
+
+ModalAuthorization.propTypes = {
+  onModalAuthorizationStateSet: PropTypes.func.isRequired,
+};
 
 export default ModalAuthorization;

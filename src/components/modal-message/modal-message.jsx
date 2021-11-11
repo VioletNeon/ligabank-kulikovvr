@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react';
+import PropTypes from 'prop-types';
 import {trapFocus} from '../../utils';
 
 const MODAL_MESSAGE_CLASS_NAME = 'modal-message';
@@ -47,5 +48,9 @@ function ModalMessage({onModalMessageStateSet}) {
     </div>
   );
 }
+
+ModalMessage.propTypes = {
+  onModalMessageStateSet: PropTypes.func.isRequired,
+};
 
 export default ModalMessage;

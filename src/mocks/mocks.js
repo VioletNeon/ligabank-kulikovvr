@@ -85,7 +85,7 @@ const cityPoints = [
     name: 'Омск',
     latitude: 54.989792,
     longitude: 73.374340,
-  }
+  },
 ];
 
 const CenterPointMap = {

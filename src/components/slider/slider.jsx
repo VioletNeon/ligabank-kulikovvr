@@ -1,4 +1,5 @@
 import React, {useRef, useEffect} from 'react';
+import PropTypes from 'prop-types';
 
 const SWIPE_TIMER = 4000;
 const INITIAL_POSITION_OF_SLIDER = 0;
@@ -77,7 +78,12 @@ function Slider({onButtonToCreditCalculatorClick, onButtonToMapClick}) {
         </div>
       </div>
     </section>
-  )
+  );
 }
+
+Slider.propTypes = {
+  onButtonToCreditCalculatorClick: PropTypes.func.isRequired,
+  onButtonToMapClick: PropTypes.func.isRequired,
+};
 
 export default Slider;

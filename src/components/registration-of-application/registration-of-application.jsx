@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {getTernaryItem, getValidDescription} from '../../utils';
 
 function RegistrationOfApplication(props) {
@@ -15,7 +16,7 @@ function RegistrationOfApplication(props) {
     inputName,
     setTelephoneNumber,
     setFullName,
-    setEmail
+    setEmail,
   } = props;
 
   const handleInputTelephoneChange = (evt) => {
@@ -28,7 +29,7 @@ function RegistrationOfApplication(props) {
     const [
       , second = '', third = '', fourth = '', fifth = '',
       sixth = '', seventh = '', eighth = '', ninth = '',
-      tenth = '', eleventh = ''
+      tenth = '', eleventh = '',
     ] = inputLoanTermsNumbers;
 
     switch (inputLoanTermsNumbers.length) {
@@ -122,5 +123,21 @@ function RegistrationOfApplication(props) {
     </fieldset>
   );
 }
+
+RegistrationOfApplication.propTypes = {
+  applicationNumber: PropTypes.string.isRequired,
+  creditPurpose: PropTypes.object.isRequired,
+  propertyValue: PropTypes.string.isRequired,
+  initialFee: PropTypes.string.isRequired,
+  loanTerms: PropTypes.string.isRequired,
+  userDataBox: PropTypes.object.isRequired,
+  fullName: PropTypes.string.isRequired,
+  telephoneNumber: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  inputName: PropTypes.object.isRequired,
+  setTelephoneNumber: PropTypes.func.isRequired,
+  setFullName: PropTypes.func.isRequired,
+  setEmail: PropTypes.func.isRequired,
+};
 
 export default RegistrationOfApplication;

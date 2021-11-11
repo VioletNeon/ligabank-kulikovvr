@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react';
+import PropTypes from 'prop-types';
 import {creditTypes, ONE_HUNDRED_PERCENT} from '../../const';
 import {credit} from '../../mocks/mocks';
 import ModalMessage from '../modal-message/modal-message';
@@ -23,7 +24,7 @@ const SELECT_OPTION_NAME = 'option';
 const ERROR_CLASS_NAME = 'error-shake';
 const TIMER_SHOW_ERROR = 600;
 
-const getValidNumber = (value) => value.replace(",", ".");
+const getValidNumber = (value) => value.replace(',', '.');
 
 function Calculator({calculatorSectionRef}) {
   const [isSelectClosed, setSelectState] = useState(true);
@@ -51,7 +52,7 @@ function Calculator({calculatorSectionRef}) {
 
   const getPercentageRate = () => {
     if (selectOption === creditTypes.MORTGAGE_LENDING_TYPE) {
-     return percentageInitialFee < creditPurpose.estimatedPercentageLevelMax ? creditPurpose.mostPercentageRate : creditPurpose.leastPercentageRate;
+      return percentageInitialFee < creditPurpose.estimatedPercentageLevelMax ? creditPurpose.mostPercentageRate : creditPurpose.leastPercentageRate;
     } else if (selectOption === creditTypes.AUTOMOBILE_LOAN_TYPE) {
       let rate = propertyValue < creditPurpose.determiningFactorValue ? creditPurpose.estimatedPercentageLevelMax : creditPurpose.estimatedPercentageLevelMin;
       if (isAutoInsurance && isLifeInsurance) {
@@ -62,7 +63,7 @@ function Calculator({calculatorSectionRef}) {
       return `${rate}`;
     }
     return creditPurpose.mostPercentageRate;
-  }
+  };
 
   const percentageRate = getPercentageRate();
   const monthlyPercentageRate = (getValidNumber(percentageRate) / ONE_HUNDRED_PERCENT) / NUMBER_OF_MONTHS_IN_YEAR;
@@ -82,20 +83,9 @@ function Calculator({calculatorSectionRef}) {
     setSelectState(!isSelectClosed);
   };
 
-  const handleButtonFormClick = (evt) => {
-    evt.preventDefault();
-
-    if (!fullName && !telephoneNumber && !email) {
-      userDataBox.current.classList.add(ERROR_CLASS_NAME);
-      setTimeout(() => {
-        userDataBox.current.classList.remove(ERROR_CLASS_NAME);
-      }, TIMER_SHOW_ERROR);
-      return;
-    }
-
-    localStorage.setItem(fullName, JSON.stringify({name: fullName, telephone: telephoneNumber, email: email}));
-    onModalMessageStateSet();
-    resetCalculatorState();
+  const onModalMessageStateSet = () => {
+    setModalMessageState(!isModalMessageOpen);
+    document.body.style.overflow = isModalMessageOpen ? 'visible' : 'hidden';
   };
 
   const resetCalculatorState = () => {
@@ -113,9 +103,20 @@ function Calculator({calculatorSectionRef}) {
     setEmail('');
   };
 
-  const onModalMessageStateSet = () => {
-    setModalMessageState(!isModalMessageOpen);
-    document.body.style.overflow = isModalMessageOpen ? 'visible' : 'hidden';
+  const handleButtonFormClick = (evt) => {
+    evt.preventDefault();
+
+    if (!fullName && !telephoneNumber && !email) {
+      userDataBox.current.classList.add(ERROR_CLASS_NAME);
+      setTimeout(() => {
+        userDataBox.current.classList.remove(ERROR_CLASS_NAME);
+      }, TIMER_SHOW_ERROR);
+      return;
+    }
+
+    localStorage.setItem(fullName, JSON.stringify({name: fullName, telephone: telephoneNumber, email: email}));
+    onModalMessageStateSet();
+    resetCalculatorState();
   };
 
   return (
@@ -199,7 +200,12 @@ function Calculator({calculatorSectionRef}) {
       </form>
       {isModalMessageOpen && <ModalMessage onModalMessageStateSet={onModalMessageStateSet}/>}
     </section>
-  )
+  );
 }
+
+
+Calculator.propTypes = {
+  calculatorSectionRef: PropTypes.object.isRequired,
+};
 
 export default Calculator;

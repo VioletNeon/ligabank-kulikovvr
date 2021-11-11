@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import leaflet from '../../../node_modules/leaflet/dist/leaflet';
 import '../../../node_modules/leaflet/dist/leaflet.css';
 import {cityPoints, CenterPointMap} from '../../mocks/mocks';
@@ -50,5 +51,9 @@ function Map({mapRef}) {
     </section>
   );
 }
+
+Map.propTypes = {
+  mapRef: PropTypes.object.isRequired,
+};
 
 export default Map;

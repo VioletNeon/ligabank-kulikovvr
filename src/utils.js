@@ -39,7 +39,7 @@ const trapFocus = (element) => {
   });
 };
 
-const getTernaryItem = (item) => item.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+const getTernaryItem = (item) => item.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
 const getValidDescription = (terms) => {
   if (terms > TWENTY_YEARS) {

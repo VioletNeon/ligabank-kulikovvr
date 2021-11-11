@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {creditTypes} from '../../const';
 
 function AdditionalParameters(props) {
@@ -9,7 +10,7 @@ function AdditionalParameters(props) {
     selectOption,
     setMaternalCapitalState,
     setAutoInsuranceState,
-    setLifeInsuranceState
+    setLifeInsuranceState,
   } = props;
 
   const handleInputMaternalCapitalChange = (evt) => {
@@ -75,7 +76,17 @@ function AdditionalParameters(props) {
         <span>Оформить Страхование жизни в нашем банке</span>
       </label>
     </div>
-  )
+  );
 }
+
+AdditionalParameters.propTypes = {
+  isMaternalCapital: PropTypes.bool.isRequired,
+  isAutoInsurance: PropTypes.bool.isRequired,
+  isLifeInsurance: PropTypes.bool.isRequired,
+  selectOption: PropTypes.string.isRequired,
+  setMaternalCapitalState: PropTypes.func.isRequired,
+  setAutoInsuranceState: PropTypes.func.isRequired,
+  setLifeInsuranceState: PropTypes.func.isRequired,
+};
 
 export default AdditionalParameters;

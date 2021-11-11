@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function CreditType(props) {
   const {
     onOptionClick,
     isSelectClosed,
     setSelectState,
-    selectOption
+    selectOption,
   } = props;
 
   const handleToggleClick = () => {
@@ -46,7 +47,14 @@ function CreditType(props) {
         </li>
       </ul>
     </div>
-  )
+  );
 }
+
+CreditType.propTypes = {
+  onOptionClick: PropTypes.func.isRequired,
+  isSelectClosed: PropTypes.bool.isRequired,
+  setSelectState: PropTypes.func.isRequired,
+  selectOption: PropTypes.string.isRequired,
+};
 
 export default CreditType;

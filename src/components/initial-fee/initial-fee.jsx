@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {ONE_HUNDRED_PERCENT, TIMER_IN_MILLISECONDS} from '../../const';
 import {getTernaryItem} from '../../utils';
 
@@ -8,7 +9,7 @@ function InitialFee(props) {
     percentageInitialFee,
     propertyValue,
     setInitialFee,
-    initialFee
+    initialFee,
   } = props;
 
   const handleInputInitialFeeRangeChange = (evt) => {
@@ -70,7 +71,15 @@ function InitialFee(props) {
         <span className="steps__description">{Math.round(percentageInitialFee)}%</span>
       </p>
     </div>
-  )
+  );
 }
+
+InitialFee.propTypes = {
+  creditPurpose: PropTypes.object.isRequired,
+  percentageInitialFee: PropTypes.number.isRequired,
+  propertyValue: PropTypes.string.isRequired,
+  setInitialFee: PropTypes.func.isRequired,
+  initialFee: PropTypes.string.isRequired,
+};
 
 export default InitialFee;
