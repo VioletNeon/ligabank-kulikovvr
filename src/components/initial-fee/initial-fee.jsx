@@ -45,7 +45,7 @@ function InitialFee(props) {
       <div className="steps__input-wrapper">
         <label className="steps__input-description" htmlFor="initial-fee">
           <input
-            className="steps__input"
+            className="steps__input steps__input--width-fee"
             maxLength="10"
             type="text"
             id="initial-fee"

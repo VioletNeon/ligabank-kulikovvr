@@ -36,7 +36,7 @@ function Offer(props) {
             <p className="offer__value">{getTernaryItem(`${loanAmount}`)} рублей</p>
             <p className="offer__description">{creditPurpose.tittleLoanAmount}</p>
           </li>
-          <li className="offer__item">
+          <li className="offer__item offer__item--padding">
             <p className="offer__value">{percentageRate}%</p>
             <p className="offer__description">Процентная ставка</p>
           </li>
@@ -44,7 +44,7 @@ function Offer(props) {
             <p className="offer__value">{getTernaryItem(`${monthlyPayment}`)} рублей</p>
             <p className="offer__description">Ежемесячный платеж</p>
           </li>
-          <li className="offer__item">
+          <li className="offer__item offer__item--padding">
             <p className="offer__value">{getTernaryItem(`${requiredIncome}`)} рублей</p>
             <p className="offer__description">Необходимый доход</p>
           </li>

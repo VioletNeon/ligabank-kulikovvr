@@ -18,33 +18,33 @@
   @include font-special(700);
   @include font-size(22px, 31px);
 
-  margin: 60px 0 30px 0;
+  margin: 53px 0 22px 0;
 
   @media (min-width: $tablet-width) {
     @include font-size(32px, 45px);
 
-    margin: 80px 0 45px 0;
+    margin: 70px 0 25px 0;
   }
 
   @media (min-width: $desktop-width) {
     @include font-size(41px, 57px);
 
-    margin: 110px 0 70px 0;
+    margin: 96px 0 45px 0;
   }
 }
 
 .calculator__form {
-  margin: 0 0 60px 0;
+  margin: 0 0 52px 0;
 
   @media (min-width: $tablet-width) {
-    margin: 0 0 80px 0;
+    margin: 0 0 70px 0;
   }
 
   @media (min-width: $desktop-width) {
-    margin: 0 0 110px 0;
+    margin: 0 0 95px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 }
 
@@ -64,11 +64,11 @@
   @media (min-width: $tablet-width) {
     @include font-size(16px, 19px);
 
-    padding: 20px;
+    padding: 16px;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 20px 59px;
+    padding: 17px 59px 16px 59px;
     width: auto;
     max-width: 200px;
   }
@@ -80,7 +80,7 @@
 
 .calculator__wrapper-parameters {
   @media (min-width: $desktop-width) {
-    width: 50%;
+    width: 51.5%;
   }
 }
 
@@ -88,8 +88,8 @@
   @media (min-width: $desktop-width) {
     background-color: $white-background;
     width: 66%;
-    padding: 70px;
-    margin: 70px auto 0 auto;
+    padding: 63px 70px 70px 70px;
+    margin: 63px auto 0 auto;
     text-align: center;
   }
 }

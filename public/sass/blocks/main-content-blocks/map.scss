@@ -8,7 +8,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    margin: 0 0 110px 0;
+    margin: 0 0 103px 0;
   }
 
   @media (min-width: $post-desktop-width) {
@@ -28,19 +28,19 @@
   @include font-special(700);
   @include font-size(22px, 31px);
 
-  margin: 0 0 35px 0;
+  margin: 0 0 27px 0;
   padding: 0 15px;
 
   @media (min-width: $tablet-width) {
     @include font-size(32px, 45px);
 
-    margin: 0 0 45px 0;
+    margin: 0 0 32px 0;
     padding: 0;
   }
 
   @media (min-width: $desktop-width) {
     @include font-size(41px, 57px);
 
-    margin: 0 0 70px 0;
+    margin: 0 0 53px 0;
   }
 }

@@ -41,7 +41,7 @@ function Footer() {
             <svg className="page-footer__phone-icon" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <use xlinkHref="#phone-icon"/>
             </svg>
-            <span className="page-footer__phone">8 800 111 22 33</span>
+            <span className="page-footer__phone">&nbsp;8 800 111 22 33</span>
             <p className="page-footer__info-global-phones footer-text">
               Бесплатный для всех городов России
             </p>

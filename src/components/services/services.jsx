@@ -104,7 +104,7 @@ function Services() {
                 <p className="services__text">Разнообразные условия</p>
               </li>
               <li className="services__item">
-                <p className="services__text">Возможность ежемесячной капитализации или вывод процентов на банковскую карту</p>
+                <p className="services__text">Возможность&nbsp;ежемесячной капитализации или вывод процентов на банковскую карту</p>
               </li>
             </ul>
             <Link className="services__button" to="#">Узнать подробнее</Link>
@@ -123,7 +123,7 @@ function Services() {
         </div>
         <div className={`services__service ${value === 'tab_2' ? '' : 'services__service--visually-hidden'}`}>
           <div className="services__wrapper">
-            <p className="services__tittle-text">Лига Банк выдает кредиты под&nbsp;любые&nbsp;цели</p>
+            <p className="services__tittle-text">Лига Банк выдает кредиты под&nbsp;любые&nbsp;цели&nbsp;</p>
             <ul className="services__list">
               <li className="services__item">
                 <p className="services__text">Ипотечный кредит</p>
@@ -135,7 +135,7 @@ function Services() {
                 <p className="services__text">Потребительский кредит</p>
               </li>
             </ul>
-            <p className="services__text-description">Рассчитайте ежемесячный платеж и&nbsp;ставку по кредиту воспользовавшись нашим&nbsp;
+            <p className="services__text-description">Рассчитайте ежемесячный платеж и&nbsp;ставку&nbsp;по&nbsp;кредиту&nbsp;воспользовавшись нашим&nbsp;
               <Link className="services__text-link" to="#">
                 кредитным калькулятором
               </Link>
@@ -155,7 +155,7 @@ function Services() {
         </div>
         <div className={`services__service ${value === 'tab_3' ? '' : 'services__service--visually-hidden'}`}>
           <div className="services__wrapper">
-            <p className="services__tittle-text">Лига Страхование — застрахуем все что захотите</p>
+            <p className="services__tittle-text">Лига Страхование — застрахуем все&nbsp;что&nbsp;захотите</p>
             <ul className="services__list">
               <li className="services__item">
                 <p className="services__text">Автомобильное страхование</p>
@@ -183,13 +183,13 @@ function Services() {
         </div>
         <div className={`services__service ${value === 'tab_4' ? '' : 'services__service--visually-hidden'}`}>
           <div className="services__wrapper">
-            <p className="services__tittle-text">Лига Банк — это огромное количество онлайн-сервисов для&nbsp;вашего удобства</p>
+            <p className="services__tittle-text">Лига Банк — это огромное&nbsp;количество онлайн-сервисов для&nbsp;вашего удобства</p>
             <ul className="services__list">
               <li className="services__item">
                 <p className="services__text">Мобильный банк, который&nbsp;всегда&nbsp;под&nbsp;рукой&nbsp;</p>
               </li>
               <li className="services__item">
-                <p className="services__text">Приложение Лига-проездной позволит вам&nbsp;плачивать билеты по всему миру</p>
+                <p className="services__text">Приложение Лига-проездной позволит вам&nbsp;оплачивать билеты по всему миру</p>
               </li>
             </ul>
             <Link className="services__button" to="#">Узнать подробнее</Link>

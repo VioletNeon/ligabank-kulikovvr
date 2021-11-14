@@ -33,13 +33,13 @@ function Slider({onButtonToCreditCalculatorClick, onButtonToMapClick}) {
           <p className="slider__text slider__text--first-slide">Кредиты на любой случай</p>
           <button className="slider__button" onClick={onButtonToCreditCalculatorClick}>Рассчитать кредит</button>
           <picture className="slider__black-card-wrapper">
-            <source media="(min-width: 1024px)" srcSet={'img/black-card-desktop.png'} width="340" height="242"/>
-            <source media="(min-width: 768px)" srcSet={'img/black-card-tab.png'} width="256" height="172"/>
+            <source media="(min-width: 1024px)" srcSet={'img/black-card-desktop.png'}/>
+            <source media="(min-width: 768px)" srcSet={'img/black-card-tab.png'}/>
             <img className="slider__black-card" src={'img/black-card.png'} alt="Примерный вид черной карточки банка"/>
           </picture>
           <picture className="slider__white-card-wrapper">
-            <source media="(min-width: 1024px)" srcSet={'img/white-card-desktop.png'} width="340" height="242"/>
-            <img className="slider__white-card" src={'img/white-card.png'} width="256" height="172" alt="Примерный вид белой карточки банка"/>
+            <source media="(min-width: 1024px)" srcSet={'img/white-card-desktop.png'}/>
+            <img className="slider__white-card" src={'img/white-card.png'} alt="Примерный вид белой карточки банка"/>
           </picture>
           <div className="slider__indicators">
             <span className="slider__indicator slider__indicator--active"/>

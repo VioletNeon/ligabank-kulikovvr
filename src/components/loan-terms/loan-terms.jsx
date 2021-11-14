@@ -42,7 +42,7 @@ function LoanTerms({loanTerms, creditPurpose, setLoanTerms}) {
       <div className="steps__input-wrapper">
         <label className="steps__input-description" htmlFor="credit-term">
           <input
-            className="steps__input"
+            className="steps__input steps__input--width-term"
             maxLength="2"
             type="text"
             id="credit-term"

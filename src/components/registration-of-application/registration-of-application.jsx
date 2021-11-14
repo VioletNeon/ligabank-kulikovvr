@@ -115,7 +115,7 @@ function RegistrationOfApplication(props) {
             value={email}
             onChange={handleInputEmailChange}
             id="email"
-            placeholder="Email"
+            placeholder="E-mail"
             required
           />
         </label>

@@ -34,7 +34,7 @@
   padding: 0 0 10px 0;
 
   @media (min-width: $tablet-width) {
-    background-image: linear-gradient(90deg, $blue-background 58.5%, $sky-blue-color 58.5%, $sky-blue-color 82%, $basic-blue-color 82%);
+    background-image: linear-gradient(90deg, $blue-background 59.3%, $sky-blue-color 59.3%, $sky-blue-color 82.7%, $basic-blue-color 82.7%);
     box-shadow: inset -10px 180px 70px 0 $blue-background;
   }
 
@@ -67,7 +67,7 @@
 
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  margin: 42px 0 0 0;
+  margin: 39px 0 0 0;
   height: min-content;
   z-index: 2;
   padding: 0 0 0 15px;
@@ -77,7 +77,7 @@
     @include font-size(46px, 54px);
 
     padding: 0 0 0 86px;
-    margin: 70px 0 0 0;
+    margin: 65px 0 0 0;
     max-width: 330px;
   }
 
@@ -90,8 +90,8 @@
   }
 
   @media (min-width: $post-desktop-width) {
-    padding: 0 0 0 268px;
-    margin: 93px 0 0 0;
+    padding: 0 0 0 265px;
+    margin: 101px 0 0 0;
   }
 }
 
@@ -115,6 +115,7 @@
     @include font-size(18px, 21px);
 
     padding: 0 0 0 86px;
+    margin: 5px 0 0 0;
     width: 420px;
   }
 
@@ -123,11 +124,11 @@
 
     padding: 0 0 0 208px;
     width: 620px;
-    margin: 12px 0 0 0;
+    margin: 8px 0 0 0;
   }
 
   @media (min-width: $post-desktop-width) {
-    padding: 0 0 0 268px;
+    padding: 0 0 0 266px;
     width: 670px;
   }
 }
@@ -150,19 +151,19 @@
   background-color: $white-background;
   border-radius: 4px;
   border: none;
-  padding: 16px 31px;
+  padding: 13.5px 31px;
   width: max-content;
   max-width: 188px;
   height: min-content;
-  margin: 21px 0 0 15px;
+  margin: 26px 0 0 15px;
   z-index: 5;
   cursor: pointer;
 
   @media (min-width: $tablet-width) {
     @include font-size(16px, 19px);
 
-    padding: 18px 31px 19px 31px;
-    margin: 30px 0 75px 86px;
+    padding: 15px 31px 14px 31px;
+    margin: 31px 0 65px 86px;
     max-width: 206px;
   }
 
@@ -170,13 +171,13 @@
     @include font-size(18px, 21px);
 
     margin: 36px 0 100px 208px;
-    padding: 19px 36px 21px 36px;
+    padding: 15px 33px 16px 36px;
     box-shadow: 0 0 30px 50px $blue-background;
-    max-width: 234px;
+    max-width: 240px;
   }
 
   @media (min-width: $post-desktop-width) {
-    margin: 36px 0 0 268px;
+    margin: 32px 0 0 265px;
   }
 
   &:hover {
@@ -187,12 +188,16 @@
 .slider__button--blue {
   color: $white-background;
   background-color: $blue-background;
-  padding: 17px 37px 16px 37px;
+  padding: 15px 37px 12px 37px;
   box-shadow: none;
   cursor: pointer;
 
   @media (min-width: $tablet-width) {
-    padding: 18px 38px 19px 38px;
+    padding: 15px 38px 14px 38px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 16px 46px 16px 47px;
   }
 
   &:hover {
@@ -225,19 +230,24 @@
 }
 
 .slider__black-card {
-  margin: 33px 0 0 0;
+  margin: 28px 0 0 0;
   z-index: 4;
+  height: 180px;
+  width: 105px;
 
   @media (min-width: $tablet-width) {
-    margin: 90px 160px 0 0;
+    margin: 85px 153px 0 0;
+    width: 262px;
   }
 
   @media (min-width: $desktop-width) {
     margin: 103px 140px 0 0;
+    width: 330px;
+    height: 225px;
   }
 
   @media (min-width: $post-desktop-width) {
-    margin: 103px 330px 0 0;
+    margin: 118px 330px 0 0;
   }
 }
 
@@ -249,16 +259,20 @@
     grid-column: 1 / 2;
     grid-row: 1 / 4;
     justify-self: flex-end;
-    margin: 47px 77px 0 0;
+    margin: 43px 69px 0 0;
+    height: 177px;
+    width: 260px;
   }
 
   @media (min-width: $desktop-width) {
     justify-self: flex-end;
     margin: 45px 57px 0 0;
+    width: 330px;
+    height: 225px;
   }
 
   @media (min-width: $post-desktop-width) {
-    margin: 45px 220px 0 0;
+    margin: 60px 222px 0 0;
   }
 }
 
@@ -271,11 +285,11 @@
   justify-self: center;
 
   @media (min-width: $tablet-width) {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   @media (min-width: $desktop-width) {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
   }
 }
 

@@ -134,7 +134,7 @@ function Calculator({calculatorSectionRef}) {
             />
           </fieldset>
           <fieldset className={selectOption !== creditTypes.DEFAULT_TITTLE_CREDIT_TYPE ? 'steps' : 'visually-hidden'}>
-            <p className="steps__text-tittle">Шаг 2. Введите параметры кредита</p>
+            <p className="steps__text-tittle steps__text-tittle--margin">Шаг 2. Введите параметры кредита</p>
             <PropertyValue
               creditPurpose={creditPurpose}
               propertyValue={propertyValue}

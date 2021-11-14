@@ -1,24 +1,24 @@
 .offer {
   @media (min-width: $desktop-width) {
-    width: 50%;
+    width: 48.5%;
     justify-self: flex-end;
     padding: 0 0 0 40px;
   }
 
   @media (min-width: $post-desktop-width) {
-    padding: 0 0 0 70px;
+    padding: 0 0 0 65px;
   }
 }
 
 .offer__wrapper {
   background-color: $white-background;
-  margin: 32px 0 48px 0;
-  padding: 40px 16px;
+  margin: 32px 0 43px 0;
+  padding: 32px 16px 40px 16px;
   border-radius: 4px;
 
   @media (min-width: $tablet-width) {
-    margin: 43px 0 60px 0;
-    padding: 60px;
+    margin: 40px 0 55px 0;
+    padding: 54px 60px 60px 60px;
   }
 
   @media (min-width: $desktop-width) {
@@ -36,13 +36,13 @@
   @include font-special(500);
   @include font-size(18px, 25px);
 
-  padding: 0 0 35px 0;
+  padding: 0 0 24px 0;
   margin: 0;
 
   @media (min-width: $tablet-width) {
     @include font-size(22px, 31px);
 
-    padding: 0 0 40px 0;
+    padding: 0 0 24px 0;
   }
 }
 
@@ -84,17 +84,20 @@
 .offer__list {
   @include reset-list-style();
 
+  margin: 0 0 31px 0;
+
   @media (min-width: $tablet-width) {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 0 6px 0;
   }
 }
 
 .offer__item {
-  margin: 0 0 19px 0;
+  margin: 0 0 12px 0;
 
   @media (min-width: $tablet-width) {
-    margin: 0 0 35px 0;
+    margin: 0 0 25px 0;
     width: 40%;
     flex-shrink: 1;
   }
@@ -104,16 +107,20 @@
   }
 }
 
+.offer__item--padding {
+  @media (min-width: $desktop-width) {
+    padding: 0 0 0 31px;
+  }
+}
+
 .offer__value {
   @include font-special(500);
   @include font-size(18px, 25px);
 
-  margin: 0 0 7px 0;
+  margin: 0 0 1px 0;
 
   @media (min-width: $tablet-width) {
     @include font-size(22px, 31px);
-
-    margin: 0 0 10px 0;
   }
 }
 
@@ -129,7 +136,7 @@
   @include font-size(14px, 20px);
 
   color: $white-background;
-  padding: 20px 0;
+  padding: 18px 0 13px 0;
   text-align: center;
   background-color: $blue-background;
   border-radius: 4px;
@@ -140,6 +147,7 @@
     @include font-size(16px, 22px);
 
     margin: 5px 0 0 0;
+    padding: 16px 0 13px 0;
   }
 
   &:hover {

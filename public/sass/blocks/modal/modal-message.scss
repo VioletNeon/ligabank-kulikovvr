@@ -20,22 +20,18 @@
   background-color: $white-background;
   z-index: 10001;
   padding: 40px 27px;
-  width: 90%;
+  width: 74%;
   height: min-content;
   box-sizing: content-box;
   border-radius: 4px;
 
   @media (min-width: $tablet-width) {
-    width: 88%;
+    width: 81.5%;
     padding: 60px 27px;
   }
 
-  @media (min-width: $desktop-width) {
-    width: 46%;
-  }
-
   @media (min-width: $post-desktop-width) {
-    width: 36%;
+    width: 32.7%;
   }
 }
 

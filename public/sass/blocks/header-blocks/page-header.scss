@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: $white-background;
-  padding: 15px 15px 0 15px;
+  padding: 17px 15px 0 15px;
   margin: 0;
 
   @media (min-width: $tablet-width) {
@@ -57,6 +57,8 @@
   @media (min-width: $desktop-width) {
     width: 149px;
     height: 25px;
+    position: relative;
+    top: -7px;
   }
 }
 
