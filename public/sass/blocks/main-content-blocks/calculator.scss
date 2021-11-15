@@ -29,7 +29,7 @@
   @media (min-width: $desktop-width) {
     @include font-size(41px, 57px);
 
-    margin: 96px 0 45px 0;
+    margin: 96px 0 49px 0;
   }
 }
 
@@ -41,7 +41,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    margin: 0 0 95px 0;
+    margin: 0 0 98px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -60,6 +60,7 @@
   width: 100%;
   border: none;
   overflow-wrap: break-word;
+  cursor: pointer;
 
   @media (min-width: $tablet-width) {
     @include font-size(16px, 19px);
@@ -80,7 +81,7 @@
 
 .calculator__wrapper-parameters {
   @media (min-width: $desktop-width) {
-    width: 51.5%;
+    width: 51.2%;
   }
 }
 
@@ -88,8 +89,8 @@
   @media (min-width: $desktop-width) {
     background-color: $white-background;
     width: 66%;
-    padding: 63px 70px 70px 70px;
-    margin: 63px auto 0 auto;
+    padding: 64px 70px 70px 70px;
+    margin: 65px auto 0 auto;
     text-align: center;
   }
 }

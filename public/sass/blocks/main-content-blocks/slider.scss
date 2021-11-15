@@ -90,8 +90,8 @@
   }
 
   @media (min-width: $post-desktop-width) {
-    padding: 0 0 0 265px;
-    margin: 101px 0 0 0;
+    padding: 0 0 0 268px;
+    margin: 103px 0 0 0;
   }
 }
 
@@ -171,13 +171,13 @@
     @include font-size(18px, 21px);
 
     margin: 36px 0 100px 208px;
-    padding: 15px 33px 16px 36px;
+    padding: 15px 35px 16px 36px;
     box-shadow: 0 0 30px 50px $blue-background;
     max-width: 240px;
   }
 
   @media (min-width: $post-desktop-width) {
-    margin: 32px 0 0 265px;
+    margin: 34px 0 0 268px;
   }
 
   &:hover {
@@ -242,12 +242,12 @@
 
   @media (min-width: $desktop-width) {
     margin: 103px 140px 0 0;
-    width: 330px;
-    height: 225px;
+    width: 335px;
+    height: 228px;
   }
 
   @media (min-width: $post-desktop-width) {
-    margin: 118px 330px 0 0;
+    margin: 119px 333px 0 0;
   }
 }
 
@@ -267,12 +267,12 @@
   @media (min-width: $desktop-width) {
     justify-self: flex-end;
     margin: 45px 57px 0 0;
-    width: 330px;
-    height: 225px;
+    width: 334px;
+    height: 228px;
   }
 
   @media (min-width: $post-desktop-width) {
-    margin: 60px 222px 0 0;
+    margin: 61px 225px 0 0;
   }
 }
 

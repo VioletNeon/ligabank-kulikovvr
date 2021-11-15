@@ -16,6 +16,14 @@
   }
 }
 
+.page-footer--menu-open {
+  display: none;
+
+  @media (min-width: $tablet-width) {
+    display: block;
+  }
+}
+
 .page-footer__logo {
   @media (min-width: $tablet-width) {
     width: 133px;
@@ -81,7 +89,7 @@
   }
 
   @media (min-width: $post-desktop-width) {
-    margin: 5px 0 0 75px;
+    margin: 5px 0 0 80px;
   }
 }
 
@@ -135,7 +143,7 @@
   }
 
   @media (min-width: $post-desktop-width) {
-    margin-left: 80px;
+    margin-left: 76px;
   }
 
   &:first-child {
@@ -194,7 +202,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    left: 11px;
+    left: 3px;
   }
 }
 
@@ -221,7 +229,7 @@
 
   @media (min-width: $desktop-width) {
     top: 3px;
-    left: 17px;
+    left: 3px;
   }
 }
 

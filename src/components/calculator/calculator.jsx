@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react';
 import PropTypes from 'prop-types';
-import {creditTypes, ONE_HUNDRED_PERCENT} from '../../const';
+import {creditTypes, ONE_HUNDRED_PERCENT, ERROR_CLASS_NAME, TIMER_SHOW_ERROR} from '../../const';
 import {credit} from '../../mocks/mocks';
 import ModalMessage from '../modal-message/modal-message';
 import CreditType from '../credit-type/credit-type';
@@ -21,8 +21,6 @@ const COEFFICIENT = 1;
 const PERMISSIBLE_PERCENTAGE_PAYMENT_OF_INCOME = 45;
 const START_APPLICATION_NUMBER = '0011';
 const SELECT_OPTION_NAME = 'option';
-const ERROR_CLASS_NAME = 'error-shake';
-const TIMER_SHOW_ERROR = 600;
 
 const getValidNumber = (value) => value.replace(',', '.');
 
@@ -79,7 +77,7 @@ function Calculator({calculatorSectionRef}) {
     setMaternalCapitalState(false);
     setAutoInsuranceState(false);
     setLifeInsuranceState(false);
-    setLoanTerms(credit[evt.target.dataset.value].minLoanTerms);
+    setLoanTerms(`${credit[evt.target.dataset.value].minLoanTerms}`);
     setSelectState(!isSelectClosed);
   };
 
@@ -106,7 +104,7 @@ function Calculator({calculatorSectionRef}) {
   const handleButtonFormClick = (evt) => {
     evt.preventDefault();
 
-    if (!fullName && !telephoneNumber && !email) {
+    if (!fullName || !telephoneNumber || !email) {
       userDataBox.current.classList.add(ERROR_CLASS_NAME);
       setTimeout(() => {
         userDataBox.current.classList.remove(ERROR_CLASS_NAME);

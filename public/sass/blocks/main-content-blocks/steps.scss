@@ -36,6 +36,10 @@
 }
 
 .steps__text-tittle--margin {
+  @media (min-width: $tablet-width) {
+    margin: 0 0 13px 0;
+  }
+
   @media (min-width: $desktop-width) {
     margin: 0 0 16px 0;
   }
@@ -50,7 +54,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    margin-bottom: 7px;
+    margin-bottom: 12px;
   }
 }
 
@@ -177,7 +181,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    margin: 0 0 18px 0;
+    margin: 0 0 19.6px 0;
   }
 }
 
@@ -461,7 +465,7 @@
   }
 
   @media (min-width: $desktop-width) {
-    margin: 0 0 7px 0;
+    margin: 0 0 9px 0;
   }
 }
 

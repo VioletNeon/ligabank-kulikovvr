@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
+import {ERROR_CLASS_NAME, TIMER_SHOW_ERROR} from '../../const';
 import {trapFocus} from '../../utils';
 import {Link} from 'react-router-dom';
 
@@ -13,6 +14,7 @@ function ModalAuthorization({onModalAuthorizationStateSet}) {
   const [password, setPassword] = useState('');
   const [typeInput, setTypeInput] = useState(INPUT_PASSWORD_TYPE);
   const modalAuthorization = useRef(null);
+  const modalAuthorizationFieldList = useRef(null);
 
   const onEscKeyDown = (evt) => {
     if (evt.keyCode === KEY_ESCAPE_CODE) {
@@ -36,12 +38,18 @@ function ModalAuthorization({onModalAuthorizationStateSet}) {
   const handleButtonFormAuthorizationClick = (evt) => {
     evt.preventDefault();
 
-    if (login && password) {
-      localStorage.setItem(login, JSON.stringify({login: login, password: password}));
-      onModalAuthorizationStateSet();
-      setLogin('');
-      setPassword('');
+    if (!login || !password) {
+      modalAuthorizationFieldList.current.classList.add(ERROR_CLASS_NAME);
+      setTimeout(() => {
+        modalAuthorizationFieldList.current.classList.remove(ERROR_CLASS_NAME);
+      }, TIMER_SHOW_ERROR);
+      return;
     }
+
+    localStorage.setItem(login, JSON.stringify({login: login, password: password}));
+    onModalAuthorizationStateSet();
+    setLogin('');
+    setPassword('');
   };
 
   const handleInputLoginChange = (evt) => {
@@ -76,7 +84,7 @@ function ModalAuthorization({onModalAuthorizationStateSet}) {
           <img className="modal-authorization__logo" src={'img/logo-popup.svg'} width="150" height="27" alt="Лига Банк"/>
         </div>
         <form className="modal-authorization__form">
-          <ul className="modal-authorization__list">
+          <ul className="modal-authorization__list" ref={modalAuthorizationFieldList}>
             <li className="modal-authorization__item">
               <span className="modal-authorization__input-tittle">Логин</span>
               <label className="modal-authorization__input-description" htmlFor="popup-login">

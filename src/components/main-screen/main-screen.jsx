@@ -10,6 +10,7 @@ import Footer from '../footer/footer';
 
 function MainScreen() {
   const [isModalAuthorizationOpen, setModalAuthorizationState] = useState(false);
+  const [isMenuClosed, setMenuState] = useState(true);
   const calculatorSectionRef = useRef(null);
   const mapRef = useRef(null);
 
@@ -28,8 +29,12 @@ function MainScreen() {
 
   return (
     <>
-      <Header onModalAuthorizationStateSet={onModalAuthorizationStateSet}/>
-      <main className="page-main">
+      <Header
+        onModalAuthorizationStateSet={onModalAuthorizationStateSet}
+        setMenuState={setMenuState}
+        isMenuClosed={isMenuClosed}
+      />
+      <main className={`page-main ${isMenuClosed ? '' : 'page-main--menu-open'}`}>
         <h1 className="visually-hidden">Услуги Лига Банк</h1>
         <Slider
           onButtonToCreditCalculatorClick={onButtonToCreditCalculatorClick}
@@ -44,7 +49,7 @@ function MainScreen() {
           mapRef={mapRef}
         />
       </main>
-      <Footer/>
+      <Footer isMenuClosed={isMenuClosed}/>
     </>
   );
 }

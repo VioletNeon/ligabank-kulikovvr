@@ -1,12 +1,12 @@
 .offer {
   @media (min-width: $desktop-width) {
-    width: 48.5%;
+    width: 48.8%;
     justify-self: flex-end;
     padding: 0 0 0 40px;
   }
 
   @media (min-width: $post-desktop-width) {
-    padding: 0 0 0 65px;
+    padding: 0 0 0 70px;
   }
 }
 
@@ -142,6 +142,7 @@
   border-radius: 4px;
   width: 100%;
   border: none;
+  cursor: pointer;
 
   @media (min-width: $tablet-width) {
     @include font-size(16px, 22px);

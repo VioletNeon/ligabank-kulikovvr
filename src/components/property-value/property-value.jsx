@@ -15,11 +15,19 @@ function PropertyValue(props) {
 
   const handleButtonCounterClick = (evt) => {
     if (evt.currentTarget.name === NAME_BUTTON_PLUS) {
+      if ((propertyValue - creditPurpose.maxPropertyValue) < creditPurpose.stepPropertyValue) {
+        setPropertyValue(`${creditPurpose.maxPropertyValue}`);
+        setInitialFee(`${Math.round(creditPurpose.maxPropertyValue * creditPurpose.startCoefficientOfInitialFee)}`);
+        return;
+      }
+
       const addedPropertyValue = +propertyValue + creditPurpose.stepPropertyValue;
       setPropertyValue(`${addedPropertyValue}`);
       setInitialFee(`${Math.round(addedPropertyValue * creditPurpose.startCoefficientOfInitialFee)}`);
       return;
-    } else if (propertyValue < creditPurpose.stepPropertyValue) {
+    } else if ((propertyValue - creditPurpose.minPropertyValue) < creditPurpose.stepPropertyValue) {
+      setPropertyValue(`${creditPurpose.minPropertyValue}`);
+      setInitialFee(`${Math.round(creditPurpose.minPropertyValue * creditPurpose.startCoefficientOfInitialFee)}`);
       return;
     }
     const detractedPropertyValue = +propertyValue - creditPurpose.stepPropertyValue;

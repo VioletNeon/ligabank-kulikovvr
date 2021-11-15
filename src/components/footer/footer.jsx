@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-function Footer() {
+function Footer({isMenuClosed}) {
   return (
-    <footer className="page-footer">
+    <footer className={`page-footer ${isMenuClosed ? '' : 'page-footer--menu-open'}`}>
       <div className="page-footer__wrapper">
         <div className="page-footer__about-company-wrapper">
           <Link className="page-footer__logo-link" to='#'>
@@ -85,5 +86,9 @@ function Footer() {
     </footer>
   );
 }
+
+Footer.propTypes = {
+  isMenuClosed: PropTypes.bool.isRequired,
+};
 
 export default Footer;

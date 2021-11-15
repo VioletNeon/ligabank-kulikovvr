@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-function Header({onModalAuthorizationStateSet}) {
-  const [isMenuClosed, setMenuState] = useState(true);
+function Header({onModalAuthorizationStateSet, setMenuState, isMenuClosed}) {
 
   const handleButtonMenuClick = () => {
     setMenuState(!isMenuClosed);
@@ -52,6 +51,8 @@ function Header({onModalAuthorizationStateSet}) {
 
 Header.propTypes = {
   onModalAuthorizationStateSet: PropTypes.func.isRequired,
+  setMenuState: PropTypes.func.isRequired,
+  isMenuClosed: PropTypes.bool.isRequired,
 };
 
 export default Header;
