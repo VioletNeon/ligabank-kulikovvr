@@ -34,6 +34,7 @@ function MainScreen() {
         setMenuState={setMenuState}
         isMenuClosed={isMenuClosed}
       />
+      {isModalAuthorizationOpen && <ModalAuthorization onModalAuthorizationStateSet={onModalAuthorizationStateSet}/>}
       <main className={`page-main ${isMenuClosed ? '' : 'page-main--menu-open'}`}>
         <h1 className="visually-hidden">Услуги Лига Банк</h1>
         <Slider
@@ -44,7 +45,6 @@ function MainScreen() {
         <Calculator
           calculatorSectionRef={calculatorSectionRef}
         />
-        {isModalAuthorizationOpen && <ModalAuthorization onModalAuthorizationStateSet={onModalAuthorizationStateSet}/>}
         <Map
           mapRef={mapRef}
         />
